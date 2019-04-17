@@ -4,60 +4,66 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Hammersmith One', sans-serif;
+  font-family: "Hammersmith One", sans-serif;
 }
 
 h2 {
-    color: white;
+  color: white;
 }
 
 p {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .navbar {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
+  background-color: #003b72;
 }
-
 
 .container {
-    margin: 0 auto;
-    padding: 10%;
+  margin: 0 auto;
+  padding: 10%;
 }
 
-
-
 .btn-group {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .card {
-    width: fit-content;
-    margin: auto;
+  width: fit-content;
+  margin: auto;
 }
 
 .card-body {
-    margin: 0 auto;
-    text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
-
 .bgimage {
-    width:100%;
-    height:500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1473269712320-f24ce5aa6e5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    background-attachment: fixed;
-    text-align: center;
-  }
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1473269712320-f24ce5aa6e5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+}
 
-  .text{ 
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.focus {
+  top: 150px;
+}
+
+.text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app-description {
+  color: white;
+}
