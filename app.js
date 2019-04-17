@@ -28,9 +28,6 @@ let getRecipe = (meal) => {
     })
 }    
 
-
-
-
 //collecting ingredients for master list
 $("#salt").on("click", function (e) {
     e.preventDefault();           
@@ -84,8 +81,9 @@ $("#butter").on("click", function (e) {
 //collecting keyword for api search
 $("form").on("submit", function (e) {
     e.preventDefault();            
-        console.log("You want " + $('#keyword').val());
-        food.push($('#keyword').val());
+    console.log("You want " + $('#keyword').val());
+    food.push($('#keyword').val());
+    food.map(getRecipe);
     
 });
 
