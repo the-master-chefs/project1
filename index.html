@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>PROJECT1</title>
+    <title>Recipe Search</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -40,7 +40,7 @@
                           <button type="button" id ="olive-oil" class="btn btn-dark" value="olive oil">Olive Oil</button>
                           <button type="button" id ="baking-soda" class="btn btn-dark" value="baking soda">Baking Soda</button>
                           <button type="button" id ="eggs" class="btn btn-dark" value="eggs">Eggs</button>
-                          <button type="button" id ="olive-oil" class="btn btn-dark" value="olive oil">Olive Oil</button>
+                          <button type="button" id ="butter" class="btn btn-dark" value="butter">Butter</button>
                         
                         </div>
                       </div>
@@ -50,9 +50,20 @@
         </div>
       </section>
     <div class="container">
-        
-        
-  
+        <form>
+        <div class="input-group mb-3">
+            <input type="text" id="keyword" class="form-control" placeholder="What are you feeling like, chicken, beef, fish?" aria-label="What are you feeling like, chicken, beef, fish?" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit" id="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+        <span id="recipes">
+           
+        </span>
+      </div>
   
   
   
