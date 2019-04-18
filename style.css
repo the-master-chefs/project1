@@ -27,9 +27,15 @@ p {
   color: white;
 }
 
+.jumbotron {
+  background-color: #B33A2D;
+  color: white;
+  text-align: center;
+
+}
+
 .container {
   margin: 0 auto;
-  padding: 10%;
 }
 
 
