@@ -17,12 +17,16 @@ $(document).ready(function() {
      
       for (let i = 1; i < 20; i++) {
         $("#recipes").append(`
+        <div class="row">
+  <div class="col-sm-6">
       <div class="card" style="width: 18rem;">
   <img src="${response.meals[i].strMealThumb}" class="card-img-top" alt="none">
   <div class="card-body">
     <h5 class="card-title">${response.meals[i].strMeal}</h5>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Looks Good</a>
   </div>
+</div>
+</div>
 </div>
     `);
         let currentIngredient = response.meals[0]["strIngredient" + i];
