@@ -18,7 +18,13 @@ p {
 .navbar {
   color: white;
   text-align: center;
-  background-color: #003b72;
+  background-color: #B33A2D;
+}
+
+.btn {
+  background-color: #17B361;
+  border: none;
+  color: white;
 }
 
 .container {
@@ -26,9 +32,6 @@ p {
   padding: 10%;
 }
 
-.btn-group {
-  margin: 0 auto;
-}
 
 .card {
   width: fit-content;
@@ -66,4 +69,9 @@ p {
 
 #app-description {
   color: white;
+}
+
+#recipes {
+  width: 960px;
+  margin: 0 auto;
 }
