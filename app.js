@@ -23,8 +23,9 @@ $(document).ready(function() {
   <img src="${response.meals[i].strMealThumb}" class="card-img-top" alt="none">
   <div class="card-body">
     <h5 class="card-title">${response.meals[i].strMeal}</h5>
-    <a href="#" class="btn btn-primary">Looks Good</a>
+    <a href="#" id = "recipe-card" class="btn btn-primary">Looks Good</a>
   </div>
+  <br>
 </div>
 </div>
 </div>
