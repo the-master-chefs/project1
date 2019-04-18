@@ -1,5 +1,6 @@
 var cabinet = [];
 var food = [];
+let ingredients = [];
 $(document).ready(function() {
   //AJAX Request Function
   let getRecipe = meal => {
@@ -12,7 +13,7 @@ $(document).ready(function() {
     }).then(response => {
       console.log(response);
       //Build an array of the required ingredients
-      let ingredients = [];
+     
       for (let i = 1; i < 20; i++) {
         let currentIngredient = response.meals[0]["strIngredient" + i];
         if (currentIngredient !== "") {
