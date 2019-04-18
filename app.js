@@ -21,6 +21,8 @@ $(document).ready(function() {
           break;
         }
       }
+      //log api url
+      console.log(queryURL);
       //Display Ingredients
       console.log(ingredients);
       //Display Recipe
