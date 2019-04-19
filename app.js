@@ -48,6 +48,7 @@ $(document).ready(function() {
   };
 
   //collecting ingredients for master list
+  
   $("#salt").on("click", function(e) {
     e.preventDefault();
     console.log("You have salt");
@@ -156,10 +157,17 @@ $(document).ready(function() {
             needed.push(currentIngredientList[i]);
           }
         }
+        var toTitleCase = function (str) {
+          str = str.toLowerCase().split(' ');
+          for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+          }
+          return str.join(' ');
+        };
         
         console.log("Cabinet: " + cabinet.join(', '));
-        console.log("Matching: " + matching.join(', '));
-        console.log("Needed: " + needed.join(', '));
+        console.log("Matching: " + toTitleCase(matching.join(', ')));
+        console.log("Needed: " + toTitleCase(needed.join(', ')));
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
@@ -179,8 +187,8 @@ $(document).ready(function() {
                       <ul class="unstyled">${listElements.join("")}</ul>
                     </div>
                     <div class="text-left m-2">
-                    <p>What you have: ${matching.join(', ')}</p>
-                    <p>What you need: ${needed.join(', ')}</p>
+                    <p><span id="correct">Available:</span> ${toTitleCase(matching.join(', '))}</p>
+                    <p><span id="incorrect">Needed:</span> ${toTitleCase(needed.join(', '))}</p>
                     </div>
                     <div class="text-left m-2">
                       <h6 class="text-left">Calorie Count</h6>

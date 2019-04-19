@@ -18,17 +18,18 @@ p {
 .navbar {
   color: white;
   text-align: center;
-  background-color: #B33A2D;
+  background-color: #4E8036;
+  height: 34px;
 }
 
 .btn {
-  background-color: #17B361;
+  background-color: #68805C;
   border: none;
   color: white;
 }
 
 .jumbotron {
-  background-color: #B33A2D;
+  background-color: #4E8036;
   color: white;
   text-align: center;
 
@@ -58,7 +59,7 @@ p {
   width: 100%;
   height: 500px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1473269712320-f24ce5aa6e5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
+    url("https://images.unsplash.com/photo-1543788527-ca7e52de3228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -85,4 +86,14 @@ p {
 #recipes {
   max-width: 960px;
   margin: 0 auto;
+}
+
+#correct {
+  color: #68805C;
+  font-weight: bold;
+}
+
+#incorrect {
+  color: rgb(175, 25, 25);
+  font-weight: bold;
 }
