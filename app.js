@@ -1,7 +1,6 @@
 var cabinet = [];
 var food = [];
 let ingredients = [];
-var matching = [];
 $(document).ready(function() {
   //AJAX Request Function
   let getRecipe = meal => {
@@ -49,6 +48,7 @@ $(document).ready(function() {
   };
 
   //collecting ingredients for master list
+  
   $("#salt").on("click", function(e) {
     e.preventDefault();
     console.log("You have salt");
@@ -114,6 +114,13 @@ $(document).ready(function() {
   let makeList = function(sentence) {
     return `<li>${sentence}</li>`;
   }
+
+  //Capitalize First Letter
+  function capitalizeFirst(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+
   //TODO: Display the Recipe Inside a Jumbotron
   let displayRecipe = (meal) => {
     let queryURL =
@@ -138,7 +145,29 @@ $(document).ready(function() {
             break;
           }
         }
+
+        //Check for matching ingredients
+        let matching = [];
+        let needed = [];
+        for (let i = 0; i < currentIngredientList.length; i++) {
+          if (cabinet.includes(currentIngredientList[i]) == true) {
+            matching.push(currentIngredientList[i]);
+          }
+          if (cabinet.includes(currentIngredientList[i]) !== true) {
+            needed.push(currentIngredientList[i]);
+          }
+        }
+        var toTitleCase = function (str) {
+          str = str.toLowerCase().split(' ');
+          for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+          }
+          return str.join(' ');
+        };
         
+        console.log("Cabinet: " + cabinet.join(', '));
+        console.log("Matching: " + toTitleCase(matching.join(', ')));
+        console.log("Needed: " + toTitleCase(needed.join(', ')));
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
@@ -156,6 +185,10 @@ $(document).ready(function() {
                     <div class="text-left m-2">
                       <h6>Recipe</h6>
                       <ul class="unstyled">${listElements.join("")}</ul>
+                    </div>
+                    <div class="text-left m-2">
+                    <p><span id="correct">Available:</span> ${toTitleCase(matching.join(', '))}</p>
+                    <p><span id="incorrect">Needed:</span> ${toTitleCase(needed.join(', '))}</p>
                     </div>
                     <div class="text-left m-2">
                       <h6 class="text-left">Calorie Count</h6>
