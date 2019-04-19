@@ -18,17 +18,17 @@ p {
 .navbar {
   color: white;
   text-align: center;
-  background-color: #50967B;
+  background-color: #B33A2D;
 }
 
 .btn {
-  background-color: #964F41;
+  background-color: #17B361;
   border: none;
   color: white;
 }
 
 .jumbotron {
-  background-color: #50967B;
+  background-color: #B33A2D;
   color: white;
   text-align: center;
 
@@ -41,8 +41,12 @@ p {
 
 .card {
   width: fit-content;
-  margin: auto;
-  filter: drop-shadow(0 0 0.12rem grey);
+  /*margin: auto;*/
+
+}
+
+#recipes .card {
+  width: 250px;
 }
 
 .card-body {
@@ -79,6 +83,6 @@ p {
 }
 
 #recipes {
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
 }
