@@ -109,6 +109,37 @@ $(document).ready(function() {
 
   //comparing ingredients between recipe and master
 
+
+  //TODO: Display the Recipe Inside a Jumbotron
+  let displayRecipe = (meal) => {
+    let queryURL =
+    "https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then((response) => {
+        let foodObj = response.meals[0];
+
+        let recipeArray = foodObj.strInstructions.split(". ");
+        let listElements = recipeArray.map(makeList);
+        
+        $("#recipe-container").append(`
+            <div class="card shadow">
+                <div class="card-header">
+                    <h5>${meal}</h5>
+                </div>
+                <div class="card-body">
+                    <img src="${foodObj.strMealThumb}" class="img-fluid mb-1" alt="food thumbnail" />
+                    <h6 class="text-left">Recipe</h6>
+                    <ul class="text-left unstyled">${listElements.join("")}</ul>
+                </div>
+            </div>
+        
+        `);
+    });
+  }
+
 });
 
 
