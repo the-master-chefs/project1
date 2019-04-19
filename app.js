@@ -147,16 +147,12 @@ $(document).ready(function() {
 
         //Check for matching ingredients
         let matching = [];
-        for (let i = 0; i < cabinet; i++) {
-          let currentCabinet = capitalizeFirst(cabinet[i]);
-          for (let j = 0; j < currentIngredientList; j++) {
-            if (currentCabinet === currentIngredientList[j]) {
-              matching.push(currentCabinet);
-            } else {
-              
-            }
+        for (let i = 0; i < currentIngredientList.length; i++) {
+          if (cabinet.includes(currentIngredientList[i]) == true) {
+            matching.push(currentIngredientList[i]);
           }
         }
+        
         console.log("Cabinet: " + cabinet);
         console.log("Matching: " + matching);
         
