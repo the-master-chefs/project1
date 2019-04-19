@@ -18,7 +18,7 @@ $(document).ready(function() {
       for (let i = 1; i < 20; i++) {
         $("#recipes").append(`
         
-      <div class="card p-2 bd-highlight">
+      <div class="card p-2 bd-highlight food-card">
   <img src="${response.meals[i].strMealThumb}" class="card-img-top img-fluid" alt="none">
   <div class="card-body">
     <h5 class="card-title">${response.meals[i].strMeal}</h5>
@@ -143,7 +143,7 @@ $(document).ready(function() {
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
         $("#recipes").append(`
-            <div class="card shadow m-2">
+            <div id="recipe-card" class="card shadow m-2">
                 <div class="card-header">
                     <h5>${meal}</h5>
                 </div>
