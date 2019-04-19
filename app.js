@@ -109,7 +109,10 @@ $(document).ready(function() {
 
   //comparing ingredients between recipe and master
 
-
+  //Make List Function
+  let makeList = function(sentence) {
+    return `<li>${sentence}</li>`;
+  }
   //TODO: Display the Recipe Inside a Jumbotron
   let displayRecipe = (meal) => {
     let queryURL =
@@ -123,23 +126,48 @@ $(document).ready(function() {
 
         let recipeArray = foodObj.strInstructions.split(". ");
         let listElements = recipeArray.map(makeList);
+
+        let currentIngredientList = [];
+        for (let i = 1; i < 20; i++) {
+          let currentIngredient = response.meals[0]["strIngredient" + i];
+          if (currentIngredient !== "") {
+            currentIngredientList.push(currentIngredient);
+          } else {
+            console.log(currentIngredientList);
+            break;
+          }
+        }
+        
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
         $("#recipes").append(`
-            <div class="card shadow">
+            <div class="card shadow m-2">
                 <div class="card-header">
                     <h5>${meal}</h5>
                 </div>
                 <div class="card-body">
-                    <img src="${foodObj.strMealThumb}" class="img-fluid mb-1" alt="food thumbnail" />
-                    <h6 class="text-left">Recipe</h6>
-                    <ul class="text-left unstyled">${listElements.join("")}</ul>
+                    <img src="${foodObj.strMealThumb}" class="img-fluid m-2" alt="food thumbnail" />
+                    <div class="text-left m-2">
+                      <h6>Ingredients</h6>
+                      ${currentIngredientList.join(", ")}
+                    </div>
+                    <div class="text-left m-2">
+                      <h6>Recipe</h6>
+                      <ul class="unstyled">${listElements.join("")}</ul>
+                    </div>
+                    <div class="text-left m-2">
+                      <h6 class="text-left">Calorie Count</h6>
+                      <span>Number will go here</span>
+                    </div>
+                    
                 </div>
             </div>
         `);
     });
   }
+  //Test
+  displayRecipe("Creamy Tomato Soup");
 
   //This will be the event listener for the food item
   $(document).on("click", ".class-of-meal-button", function(){
