@@ -147,14 +147,19 @@ $(document).ready(function() {
 
         //Check for matching ingredients
         let matching = [];
+        let needed = [];
         for (let i = 0; i < currentIngredientList.length; i++) {
           if (cabinet.includes(currentIngredientList[i]) == true) {
             matching.push(currentIngredientList[i]);
           }
+          if (cabinet.includes(currentIngredientList[i]) !== true) {
+            needed.push(currentIngredientList[i]);
+          }
         }
         
-        console.log("Cabinet: " + cabinet);
-        console.log("Matching: " + matching);
+        console.log("Cabinet: " + cabinet.join(', '));
+        console.log("Matching: " + matching.join(', '));
+        console.log("Needed: " + needed.join(', '));
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
@@ -172,6 +177,10 @@ $(document).ready(function() {
                     <div class="text-left m-2">
                       <h6>Recipe</h6>
                       <ul class="unstyled">${listElements.join("")}</ul>
+                    </div>
+                    <div class="text-left m-2">
+                    <p>What you have: ${matching.join(', ')}</p>
+                    <p>What you need: ${needed.join(', ')}</p>
                     </div>
                     <div class="text-left m-2">
                       <h6 class="text-left">Calorie Count</h6>
