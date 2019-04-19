@@ -1,7 +1,6 @@
 var cabinet = [];
 var food = [];
 let ingredients = [];
-var matching = [];
 $(document).ready(function() {
   //AJAX Request Function
   let getRecipe = meal => {
@@ -114,6 +113,13 @@ $(document).ready(function() {
   let makeList = function(sentence) {
     return `<li>${sentence}</li>`;
   }
+
+  //Capitalize First Letter
+  function capitalizeFirst(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+
   //TODO: Display the Recipe Inside a Jumbotron
   let displayRecipe = (meal) => {
     let queryURL =
@@ -138,7 +144,17 @@ $(document).ready(function() {
             break;
           }
         }
+
+        //Check for matching ingredients
+        let matching = [];
+        for (let i = 0; i < currentIngredientList.length; i++) {
+          if (cabinet.includes(currentIngredientList[i]) == true) {
+            matching.push(currentIngredientList[i]);
+          }
+        }
         
+        console.log("Cabinet: " + cabinet);
+        console.log("Matching: " + matching);
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
