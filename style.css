@@ -119,6 +119,10 @@ p {
   margin: 0 auto;
 }
 
+#recipes .food-card {
+  margin: 35px;
+}
+
 #correct {
   color: #68805C;
   font-weight: bold;
