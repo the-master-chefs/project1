@@ -24,20 +24,35 @@ p {
 
 .float-right {
   margin-bottom: 0;
+  background-color: #B33A2D;
+}
+
+.btn {
+  background-color: #17B361;
+  border: none;
+  color: white;
+}
+
+.jumbotron {
+  background-color: #B33A2D;
+  color: white;
+  text-align: center;
+
 }
 
 .container {
   margin: 0 auto;
-  padding: 10%;
 }
 
-.btn-group {
-  margin: 0 auto;
-}
 
 .card {
   width: fit-content;
-  margin: auto;
+  /*margin: auto;*/
+
+}
+
+#recipes .food-card {
+  width: 250px;
 }
 
 .card-body {
@@ -103,4 +118,8 @@ p {
 #ingredient-list {
   font-size: 0.8rem;
   line-height: 0.6;
+}
+#recipes {
+  max-width: 960px;
+  margin: 0 auto;
 }
