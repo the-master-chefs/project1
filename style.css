@@ -23,7 +23,7 @@ p {
 }
 
 .float-right {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .container {
@@ -71,4 +71,36 @@ p {
 
 #app-description {
   color: white;
+}
+
+#recipe-box {
+  max-width: 1080px;
+  padding: 3px 32px 32px 32px;
+}
+
+#calories {
+  margin-bottom: 0;
+}
+
+#title-section {
+  margin-bottom: 30px;
+}
+
+#recipe-title {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+#recipe-origin {
+  font-size: 1.7rem;
+}
+
+.img-thumbnail {
+  width: auto;
+  height: 350px;
+}
+
+#ingredient-list {
+  font-size: 0.8rem;
+  line-height: 0.6;
 }
