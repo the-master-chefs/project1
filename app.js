@@ -124,7 +124,8 @@ $(document).ready(function() {
         let recipeArray = foodObj.strInstructions.split(". ");
         let listElements = recipeArray.map(makeList);
         
-        $("#recipe-container").append(`
+        //This will be where we append the information to the jumbotron
+        $("#recipes").append(`
             <div class="card shadow">
                 <div class="card-header">
                     <h5>${meal}</h5>
@@ -135,10 +136,15 @@ $(document).ready(function() {
                     <ul class="text-left unstyled">${listElements.join("")}</ul>
                 </div>
             </div>
-        
         `);
     });
   }
+
+  //This will be the event listener for the food item
+  $(document).on("click", ".class-of-meal-button", function(){
+    let mealName = $(this).attr("wherever-we-put-the-name-of-the-meal");
+    displayRecipe(mealName);
+  });
 
 });
 
