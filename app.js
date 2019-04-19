@@ -124,7 +124,8 @@ $(document).ready(function() {
         let recipeArray = foodObj.strInstructions.split(". ");
         let listElements = recipeArray.map(makeList);
         
-        //This will be where we append the information to the jumbotron
+        //This will be where we append the information to the jumbotron.
+        //I'll edit this with the corresponding ids, and classes
         $("#recipes").append(`
             <div class="card shadow">
                 <div class="card-header">
@@ -142,6 +143,7 @@ $(document).ready(function() {
 
   //This will be the event listener for the food item
   $(document).on("click", ".class-of-meal-button", function(){
+    //Each button could have either an id, or a value with the meal name in it
     let mealName = $(this).attr("wherever-we-put-the-name-of-the-meal");
     displayRecipe(mealName);
   });
