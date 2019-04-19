@@ -17,18 +17,17 @@ $(document).ready(function() {
      
       for (let i = 1; i < 20; i++) {
         $("#recipes").append(`
-        <div class="row">
-  <div class="col-sm-6">
+        
+  
       <div class="card" style="width: 18rem;">
-  <img src="${response.meals[i].strMealThumb}" class="card-img-top" alt="none">
-  <div class="card-body">
-    <h5 class="card-title">${response.meals[i].strMeal}</h5>
-    <a href="#" id = "recipe-card" class="btn btn-primary">Looks Good</a>
-  </div>
-  <br>
-</div>
-</div>
-</div>
+        <img src="${response.meals[i].strMealThumb}" class="card-img-top img-fluid" alt="none">
+        <div class="card-body">
+          <h5 class="card-title">${response.meals[i].strMeal}</h5>
+          <a href="#" id = "recipe-card" class="btn btn-primary">Looks Good</a>
+        </div>
+        <br>
+    </div>
+
     `);
         let currentIngredient = response.meals[0]["strIngredient" + i];
         if (currentIngredient !== "") {

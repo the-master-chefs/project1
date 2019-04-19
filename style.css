@@ -18,17 +18,17 @@ p {
 .navbar {
   color: white;
   text-align: center;
-  background-color: #B33A2D;
+  background-color: #50967B;
 }
 
 .btn {
-  background-color: #17B361;
+  background-color: #964F41;
   border: none;
   color: white;
 }
 
 .jumbotron {
-  background-color: #B33A2D;
+  background-color: #50967B;
   color: white;
   text-align: center;
 
@@ -42,6 +42,7 @@ p {
 .card {
   width: fit-content;
   margin: auto;
+  filter: drop-shadow(0 0 0.12rem grey);
 }
 
 .card-body {
