@@ -22,7 +22,7 @@ $(document).ready(function() {
   <img src="${response.meals[i].strMealThumb}" class="card-img-top img-fluid" alt="none">
   <div class="card-body">
     <h5 class="card-title">${response.meals[i].strMeal}</h5>
-    <a href="#" id = "recipe-card" class="btn btn-primary">Looks Good</a>
+    <a href="#" id = "recipe-card" class="btn btn-primary looks-good" value="${response.meals[i].strMeal}">Looks Good</a>
   </div>
   </div>
   <br>
@@ -168,12 +168,14 @@ $(document).ready(function() {
     });
   }
   //Test
-  displayRecipe("Creamy Tomato Soup");
+  //displayRecipe("Creamy Tomato Soup");
 
   //This will be the event listener for the food item
-  $(document).on("click", ".class-of-meal-button", function(){
+  $(document).on("click", ".looks-good", function(e){
     //Each button could have either an id, or a value with the meal name in it
-    let mealName = $(this).attr("wherever-we-put-the-name-of-the-meal");
+    e.preventDefault();
+    let mealName = $(this).attr("value");
+    $("#recipes").empty();
     displayRecipe(mealName);
   });
 
