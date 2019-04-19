@@ -19,6 +19,11 @@ p {
   color: white;
   text-align: center;
   background-color: #003b72;
+  height: 46px;
+}
+
+.float-right {
+    margin-bottom: 0;
 }
 
 .container {
