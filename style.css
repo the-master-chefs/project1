@@ -27,15 +27,26 @@ p {
   color: white;
 }
 
+.jumbotron {
+  background-color: #B33A2D;
+  color: white;
+  text-align: center;
+
+}
+
 .container {
   margin: 0 auto;
-  padding: 10%;
 }
 
 
 .card {
   width: fit-content;
-  margin: auto;
+  /*margin: auto;*/
+
+}
+
+#recipes .card {
+  width: 250px;
 }
 
 .card-body {
@@ -72,6 +83,6 @@ p {
 }
 
 #recipes {
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
 }
