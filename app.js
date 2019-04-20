@@ -112,7 +112,11 @@ $(document).ready(function() {
 
   //Make List Function
   let makeList = function(sentence) {
-    return `<li>${sentence}</li>`;
+    return `<li>- ${sentence}</li>`;
+  }
+  //Make <p> elements
+  let makePara = function(item) {
+    return `<p>${item}</p>`
   }
 
   //Capitalize First Letter
@@ -145,6 +149,7 @@ $(document).ready(function() {
             break;
           }
         }
+        let ingredientDisplay = currentIngredientList.map(makePara);
 
         //Check for matching ingredients
         let matching = [];
@@ -178,6 +183,21 @@ $(document).ready(function() {
           <div id="title-section">
             <p id="recipe-title" class="text-center">${meal}</p>
             <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
+            </div>
+            <div id="ingredient-list" class="col-md-6 text-center">
+              ${ingredientDisplay.join("")}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p>
+                <ul class="unstyled">${listElements.join(" ")}</ul>
+              </p>
+            </div>
           </div>
         `);
     });
