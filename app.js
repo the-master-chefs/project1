@@ -176,27 +176,29 @@ $(document).ready(function() {
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
-        $("#recipe-tron").append(`
-          <div class="text-right">
-            <p id="calories">Calories will go here!</p>
-          </div>
-          <div id="title-section">
-            <p id="recipe-title" class="text-center">${meal}</p>
-            <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
+        $("#recipe-tron").html(`
+          <div class="jumbotron mx-auto">
+            <div class="text-right">
+              <p id="calories">Calories will go here!</p>
             </div>
-            <div id="ingredient-list" class="col-md-6 text-center">
-              ${ingredientDisplay.join(" ")}
+            <div id="title-section">
+              <p id="recipe-title" class="text-center">${meal}</p>
+              <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <p>
-                <ul class="unstyled">${listElements.join(" ")}</ul>
-              </p>
+            <div class="row">
+              <div class="col-md-6">
+                <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
+              </div>
+              <div id="ingredient-list" class="col-md-6 text-center">
+                ${ingredientDisplay.join(" ")}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <ul class="unstyled">${listElements.join(" ")}</ul>
+                </p>
+              </div>
             </div>
           </div>
         `);
