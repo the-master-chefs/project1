@@ -177,7 +177,7 @@ $(document).ready(function() {
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
         $("#recipe-tron").html(`
-          <div class="jumbotron mx-auto">
+          <div id="recipe-tron-inner" class="jumbotron mx-auto">
             <div class="text-right">
               <p id="calories">Calories will go here!</p>
             </div>
@@ -189,7 +189,7 @@ $(document).ready(function() {
               <div class="col-md-6">
                 <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
               </div>
-              <div id="ingredient-list" class="col-md-6 text-center">
+              <div id="ingredient-list" class="col-md-6 d-flex flex-column text-center justify-content-center">
                 ${ingredientDisplay.join(" ")}
               </div>
             </div>
