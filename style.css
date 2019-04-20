@@ -29,6 +29,129 @@ p {
   height: 34px;
 }
 
+.btn {
+  background-color: #F29F05;
+  border: none;
+  color: white;
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  margin: 5px;
+  
+}
+
+.jumbotron {
+  background-color: #730202;
+  color: white;
+  text-align: center;
+
+}
+
+.container {
+  margin: 0 auto;
+}
+
+
+.card {
+  width: fit-content;
+  margin: auto;
+
+}
+
+#recipes .food-card {
+  width: 250px;
+}
+
+.card-body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bgimage {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.focus {
+  top: 150px;
+}
+
+.text {
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: relative;
+}
+
+#app-description {
+  color: white;
+}
+
+#recipe-box {
+  max-width: 1080px;
+  padding: 3px 32px 32px 32px;
+}
+
+#calories {
+  margin-bottom: 0;
+}
+
+#title-section {
+  margin-bottom: 30px;
+}
+
+#recipe-title {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+#recipe-origin {
+  font-size: 1.7rem;
+}
+
+.img-thumbnail {
+  width: auto;
+  height: 350px;
+}
+
+#ingredient-list {
+  font-size: 0.8rem;
+  line-height: 0.6;
+}
+#recipes {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#recipes .food-card {
+  margin: 35px;
+}
+
+#correct {
+  color: rgb(39, 116, 1);
+  font-weight: bold;
+}
+
+#incorrect {
+  color: #730202;
+  font-weight: bold;
+}
+@media (min-width: 320px) {
+  
+}
+#recipe-tron-inner {
+  max-width: 1000px;
+}
+
 }
 
 @media (min-width: 992px) {
@@ -60,6 +183,17 @@ p {
   background-color: #F29F05;
   border: none;
   color: white;
+  display: inline-block;
+  font-weight: 400;
+
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s 
 }
 
 .jumbotron {
