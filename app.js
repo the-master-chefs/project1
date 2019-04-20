@@ -13,22 +13,29 @@ $(document).ready(function() {
     }).then(response => {
       console.log(response);
       //Build an array of the required ingredients
-     
-      for (let i = 1; i < 20; i++) {
-        $("#recipes").append(`
-        
-      <div class="card p-2 bd-highlight food-card">
-  <img src="${response.meals[i].strMealThumb}" class="card-img-top img-fluid" alt="none">
-  <div class="card-body">
-    <h5 class="card-title">${response.meals[i].strMeal}</h5>
-    <a href="#" id = "recipe-card" class="btn btn-primary looks-good" value="${response.meals[i].strMeal}">Looks Good</a>
-  </div>
-  </div>
-  <br>
-</div>
-</div>
 
-    `);
+      for (let i = 1; i < 20; i++) {
+        $("#recipes").append(`        
+        <div class="card p-2 bd-highlight food-card">
+          <img
+            src="${response.meals[i].strMealThumb}"
+            class="card-img-top img-fluid"
+          alt="none"
+          />
+  
+          <div class="card-body">
+            <h5 class="card-title">${response.meals[i].strMeal}</h5>
+            <a
+              href="#"
+              id="recipe-card"
+              class="btn btn-primary looks-good"
+              value="${response.meals[i].strMeal}"
+              >Looks Good</a
+            >
+          </div>
+        </div>
+        <br />
+        `);
         let currentIngredient = response.meals[0]["strIngredient" + i];
         if (currentIngredient !== "") {
           ingredients.push(currentIngredient);
@@ -42,13 +49,11 @@ $(document).ready(function() {
       console.log(ingredients);
       //Display Recipe
       console.log(response.meals[0].strInstructions);
-
-
     });
   };
 
   //collecting ingredients for master list
-  
+
   $("#salt").on("click", function(e) {
     e.preventDefault();
     console.log("You have salt");
@@ -104,9 +109,7 @@ $(document).ready(function() {
     console.log("You want " + $("#keyword").val());
     food.push($("#keyword").val());
     food.map(getRecipe);
-
   });
-
 
   //comparing ingredients between recipe and master
 
@@ -124,11 +127,10 @@ $(document).ready(function() {
     return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
-
   //TODO: Display the Recipe Inside a Jumbotron
-  let displayRecipe = (meal) => {
+  let displayRecipe = meal => {
     let queryURL =
-    "https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal;
+      "https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal;
 
     $.ajax({
         url: queryURL,
@@ -151,16 +153,21 @@ $(document).ready(function() {
         }
         let ingredientDisplay = currentIngredientList.map(makePara);
 
-        //Check for matching ingredients
-        let matching = [];
-        let needed = [];
-        for (let i = 0; i < currentIngredientList.length; i++) {
-          if (cabinet.includes(currentIngredientList[i]) == true) {
-            matching.push(currentIngredientList[i]);
-          }
-          if (cabinet.includes(currentIngredientList[i]) !== true) {
-            needed.push(currentIngredientList[i]);
-          }
+      //Check for matching ingredients
+      let matching = [];
+      let needed = [];
+      for (let i = 0; i < currentIngredientList.length; i++) {
+        if (cabinet.includes(currentIngredientList[i]) == true) {
+          matching.push(currentIngredientList[i]);
+        }
+        if (cabinet.includes(currentIngredientList[i]) !== true) {
+          needed.push(currentIngredientList[i]);
+        }
+      }
+      var toTitleCase = function(str) {
+        str = str.toLowerCase().split(" ");
+        for (var i = 0; i < str.length; i++) {
+          str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
         }
         var toTitleCase = function (str) {
           str = str.toLowerCase().split(' ');
@@ -203,19 +210,16 @@ $(document).ready(function() {
           </div>
         `);
     });
-  }
+  };
   //Test
   //displayRecipe("Creamy Tomato Soup");
 
   //This will be the event listener for the food item
-  $(document).on("click", ".looks-good", function(e){
+  $(document).on("click", ".looks-good", function(e) {
     //Each button could have either an id, or a value with the meal name in it
     e.preventDefault();
     let mealName = $(this).attr("value");
     $("#recipe-tron").empty();
     displayRecipe(mealName);
   });
-
 });
-
-
