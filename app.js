@@ -171,32 +171,14 @@ $(document).ready(function() {
         
         //This will be where we append the information to the jumbotron.
         //I'll edit this with the corresponding ids, and classes
-        $("#recipes").append(`
-            <div id="recipe-card" class="card shadow m-2">
-                <div class="card-header">
-                    <h5>${meal}</h5>
-                </div>
-                <div class="card-body">
-                    <img src="${foodObj.strMealThumb}" class="img-fluid m-2" alt="food thumbnail" />
-                    <div class="text-left m-2">
-                      <h6>Ingredients</h6>
-                      ${currentIngredientList.join(", ")}
-                    </div>
-                    <div class="text-left m-2">
-                      <h6>Recipe</h6>
-                      <ul class="unstyled">${listElements.join("")}</ul>
-                    </div>
-                    <div class="text-left m-2">
-                    <p><span id="correct">Available:</span> ${toTitleCase(matching.join(', '))}</p>
-                    <p><span id="incorrect">Needed:</span> ${toTitleCase(needed.join(', '))}</p>
-                    </div>
-                    <div class="text-left m-2">
-                      <h6 class="text-left">Calorie Count</h6>
-                      <span>Number will go here</span>
-                    </div>
-                    
-                </div>
-            </div>
+        $("#recipe-tron").append(`
+          <div class="text-right">
+            <p id="calories">Calories will go here!</p>
+          </div>
+          <div id="title-section">
+            <p id="recipe-title" class="text-center">${meal}</p>
+            <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
+          </div>
         `);
     });
   }
@@ -208,7 +190,7 @@ $(document).ready(function() {
     //Each button could have either an id, or a value with the meal name in it
     e.preventDefault();
     let mealName = $(this).attr("value");
-    $("#recipes").empty();
+    $("#recipe-tron").empty();
     displayRecipe(mealName);
   });
 
