@@ -135,3 +135,6 @@ p {
 @media (min-width: 320px) {
   
 }
+#recipe-tron-inner {
+  max-width: 1000px;
+}
