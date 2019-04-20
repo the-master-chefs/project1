@@ -163,12 +163,7 @@ $(document).ready(function() {
         if (cabinet.includes(currentIngredientList[i]) !== true) {
           needed.push(currentIngredientList[i]);
         }
-      }
-      var toTitleCase = function(str) {
-        str = str.toLowerCase().split(" ");
-        for (var i = 0; i < str.length; i++) {
-          str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
-        }
+      };
         var toTitleCase = function (str) {
           str = str.toLowerCase().split(' ');
           for (var i = 0; i < str.length; i++) {
@@ -222,4 +217,5 @@ $(document).ready(function() {
     $("#recipe-tron").empty();
     displayRecipe(mealName);
   });
+
 });
