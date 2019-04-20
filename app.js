@@ -115,8 +115,12 @@ $(document).ready(function() {
 
   //Make List Function
   let makeList = function(sentence) {
-    return `<li>${sentence}</li>`;
-  };
+    return `<li>- ${sentence}</li>`;
+  }
+  //Make <p> elements
+  let makePara = function(item) {
+    return `<p>${item}</p>`
+  }
 
   //Capitalize First Letter
   function capitalizeFirst(word) {
@@ -129,24 +133,25 @@ $(document).ready(function() {
       "https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal;
 
     $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(response => {
-      let foodObj = response.meals[0];
+        url: queryURL,
+        method: "GET"
+    }).then((response) => {
+        let foodObj = response.meals[0];
 
-      let recipeArray = foodObj.strInstructions.split(". ");
-      let listElements = recipeArray.map(makeList);
+        let recipeArray = foodObj.strInstructions.split(". ");
+        let listElements = recipeArray.map(makePara);
 
-      let currentIngredientList = [];
-      for (let i = 1; i < 20; i++) {
-        let currentIngredient = + response.meals[0]["strIngredient" + i];
-        if (currentIngredient !== "") {
-          currentIngredientList.push(currentIngredient);
-        } else {
-          console.log(currentIngredientList);
-          break;
+        let currentIngredientList = [];
+        for (let i = 1; i < 20; i++) {
+          let currentIngredient = response.meals[0]["strIngredient" + i];
+          if (currentIngredient !== "") {
+            currentIngredientList.push(currentIngredient);
+          } else {
+            console.log(currentIngredientList);
+            break;
+          }
         }
-      }
+        let ingredientDisplay = currentIngredientList.map(makePara);
 
       //Check for matching ingredients
       let matching = [];
@@ -164,47 +169,45 @@ $(document).ready(function() {
         for (var i = 0; i < str.length; i++) {
           str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
         }
-        return str.join(" ");
-      };
-
-      console.log("Cabinet: " + cabinet.join(", "));
-      console.log("Matching: " + toTitleCase(matching.join(", ")));
-      console.log("Needed: " + toTitleCase(needed.join(", ")));
-
-      //This will be where we append the information to the jumbotron.
-      //I'll edit this with the corresponding ids, and classes
-      $("#recipes").append(`
-            <div id="recipe-card" class="card shadow m-2">
-                <div class="card-header">
-                    <h5>${meal}</h5>
-                </div>
-                <div class="card-body">
-                    <img src="${
-                      foodObj.strMealThumb
-                    }" class="img-fluid m-2" alt="food thumbnail" />
-                    <div class="text-left m-2">
-                      <h6>Ingredients</h6>
-                      ${currentIngredientList.join(", ")}
-                    </div>
-                    <div class="text-left m-2">
-                      <h6>Recipe</h6>
-                      <ul class="unstyled">${listElements.join("")}</ul>
-                    </div>
-                    <div class="text-left m-2">
-                    <p><span id="correct">Available:</span> ${toTitleCase(
-                      matching.join(", ")
-                    )}</p>
-                    <p><span id="incorrect">Needed:</span> ${toTitleCase(
-                      needed.join(", ")
-                    )}</p>
-                    </div>
-                    <div class="text-left m-2">
-                      <h6 class="text-left">Calorie Count</h6>
-                      <span>Number will go here</span>
-                    </div>
-                    
-                </div>
+        var toTitleCase = function (str) {
+          str = str.toLowerCase().split(' ');
+          for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+          }
+          return str.join(' ');
+        };
+        
+        console.log("Cabinet: " + cabinet.join(', '));
+        console.log("Matching: " + toTitleCase(matching.join(', ')));
+        console.log("Needed: " + toTitleCase(needed.join(', ')));
+        
+        //This will be where we append the information to the jumbotron.
+        //I'll edit this with the corresponding ids, and classes
+        $("#recipe-tron").html(`
+          <div id="recipe-tron-inner" class="jumbotron mx-auto">
+            <div class="text-right">
+              <p id="calories">Calories will go here!</p>
             </div>
+            <div id="title-section">
+              <p id="recipe-title" class="text-center">${meal}</p>
+              <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
+              </div>
+              <div id="ingredient-list" class="col-md-6 d-flex flex-column text-center justify-content-center">
+                ${ingredientDisplay.join(" ")}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <ul class="unstyled">${listElements.join(" ")}</ul>
+                </p>
+              </div>
+            </div>
+          </div>
         `);
     });
   };
@@ -216,7 +219,7 @@ $(document).ready(function() {
     //Each button could have either an id, or a value with the meal name in it
     e.preventDefault();
     let mealName = $(this).attr("value");
-    $("#recipes").empty();
+    $("#recipe-tron").empty();
     displayRecipe(mealName);
   });
 });
