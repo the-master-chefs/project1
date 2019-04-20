@@ -1,3 +1,37 @@
+
+
+@media (min-width: 768px) {
+  .text{
+    position: relative;
+  }
+
+  h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Hammersmith One", sans-serif;
+}
+
+h2 {
+  color: white;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.navbar {
+  color: white;
+  text-align: center;
+  background-color: #730202;
+  height: 34px;
+}
+
+}
+
+@media (min-width: 992px) {
 h1,
 h2,
 h3,
@@ -137,4 +171,5 @@ p {
 }
 #recipe-tron-inner {
   max-width: 1000px;
+}
 }
