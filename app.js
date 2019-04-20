@@ -137,7 +137,7 @@ $(document).ready(function() {
         let foodObj = response.meals[0];
 
         let recipeArray = foodObj.strInstructions.split(". ");
-        let listElements = recipeArray.map(makeList);
+        let listElements = recipeArray.map(makePara);
 
         let currentIngredientList = [];
         for (let i = 1; i < 20; i++) {
@@ -189,7 +189,7 @@ $(document).ready(function() {
               <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
             </div>
             <div id="ingredient-list" class="col-md-6 text-center">
-              ${ingredientDisplay.join("")}
+              ${ingredientDisplay.join(" ")}
             </div>
           </div>
           <div class="row">
