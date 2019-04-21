@@ -1,5 +1,5 @@
 /* phone */
-@media (max-width: 576px) {
+@media (min-width: 320px) {
   .text{
     position: relative;
   }
@@ -80,7 +80,8 @@ p {
 }
 
 .focus {
-  top: 150px;
+  top: 56px;
+    margin: initial;
 }
 
 .text {
@@ -102,6 +103,7 @@ p {
 
 #calories {
   margin-bottom: 0;
+  text-align: center;
 }
 
 #title-section {
