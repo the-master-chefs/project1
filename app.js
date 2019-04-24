@@ -235,6 +235,11 @@ function initMap() {
         zoom: 5
       };
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, long),
+        map: map,
+        title: 'Found you!'
+      });
 
     })
   } else {
