@@ -246,7 +246,7 @@ function initMap() {
       var request = {
         location: new google.maps.LatLng(lat, long),
         radius: "1500",
-        rankBy: "DISTANCE",
+        //rankBy: "DISTANCE",
         type: ["supermarket"]
       };
 
