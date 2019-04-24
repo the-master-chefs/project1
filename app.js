@@ -225,8 +225,12 @@ $(document).ready(function() {
 function initMap() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
+
+      //Set Coordinates
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
+
+      //This is the first map
       var mapOptions = {
         center: new google.maps.LatLng(lat, long),
         zoom: 15
@@ -237,11 +241,18 @@ function initMap() {
         map: map,
         title: 'Found you!'
       });
-      //Any use of the location must go here inside this function
+
+      //Grocery Store
+      var request = {
+        location: new google.maps.LatLng(lat, long),
+        radius: "1500",
+        rankBy: "DISTANCE",
+        type: ["supermarket"]
+      };
+
+
     })
   } else {
     console.log("The browser doesn't support geolocation");
   }
 };
-
-//Make three functions for grocery store, fast food, big box
