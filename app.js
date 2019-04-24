@@ -222,3 +222,59 @@ $(document).ready(function() {
 });
 
 //GeoLocation & Google Maps API
+var map;
+var infowindow;
+
+function initMap() {
+  //Create a map (starts at DC)
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 38.9072, lng: -77.0369},
+    zoom: 15
+  });
+
+  infowindow = new google.maps.InfoWindow;
+
+  //Using html5 geolocation, redraw the map to show the user's location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      infowindow.setPosition({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
+      infowindow.setContent("You are here!");
+      infowindow.open(map);
+      map.setCenter({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
+      //Next step is to take the user's location and find nearby places
+
+    })
+  } else {
+    console.log("Geolocation not working");
+  }
+
+  
+
+}
+
+//These functions will be used for search queries
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+
+function createMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
