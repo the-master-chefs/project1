@@ -232,7 +232,7 @@ function initMap() {
       console.log("long: " + long);
       var mapOptions = {
         center: new google.maps.LatLng(lat, long),
-        zoom: 5
+        zoom: 15
       };
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
       var marker = new google.maps.Marker({
