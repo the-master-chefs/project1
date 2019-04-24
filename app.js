@@ -224,7 +224,7 @@ $(document).ready(function() {
 //GeoLocation & Google Maps API
 function initMap() {
   if (navigator.geolocation) {
-    console.log("It works!");
+    console.log("Your browser supports geolocation");
     navigator.geolocation.getCurrentPosition(function(position){
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
@@ -243,6 +243,6 @@ function initMap() {
 
     })
   } else {
-    console.log("The browser doesn't support this");
+    console.log("The browser doesn't support geolocation");
   }
 };
