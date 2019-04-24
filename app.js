@@ -224,12 +224,9 @@ $(document).ready(function() {
 //GeoLocation & Google Maps API
 function initMap() {
   if (navigator.geolocation) {
-    console.log("Your browser supports geolocation");
     navigator.geolocation.getCurrentPosition(function(position){
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
-      console.log("lat: " + lat);
-      console.log("long: " + long);
       var mapOptions = {
         center: new google.maps.LatLng(lat, long),
         zoom: 15
@@ -240,9 +237,11 @@ function initMap() {
         map: map,
         title: 'Found you!'
       });
-
+      //Any use of the location must go here inside this function
     })
   } else {
     console.log("The browser doesn't support geolocation");
   }
 };
+
+//Make three functions for grocery store, fast food, big box
