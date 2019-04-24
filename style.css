@@ -22,10 +22,16 @@ p {
 }
 
 .navbar {
-  color: white;
+  color: grey;
   text-align: center;
-  background-color: #730202;
+  background-color: white;
   height: 34px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.bg-light {
+  background-color: #fff!important;
 }
 
 .btn {
@@ -175,11 +181,21 @@ p {
   font-family: "Open Sans", sans-serif;
 }
 
+#tag {
+  font-family: 'Satisfy', cursive;
+}
+
 .navbar {
-  color: white;
+  color: grey;
   text-align: center;
-  background-color: #730202;
+  background-color: white;
   height: 34px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.bg-light {
+  background-color: #fff!important;
 }
 
 .btn {
@@ -325,10 +341,24 @@ p {
 }
 
 .navbar {
-  color: white;
+  color: grey;
   text-align: center;
-  background-color: #730202;
+  background-color: white;
   height: 34px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.bg-light {
+  background-color: #fff!important;
+}
+
+#tag {
+  font-family: 'Satisfy', cursive;
+}
+
+.card-img-overlay {
+  background: linear-gradient(rgba(#000, 0.4));
 }
 
 .btn {
@@ -366,8 +396,10 @@ p {
 
 }
 
+
 #recipes .food-card {
   width: 250px;
+  border: none;
 }
 
 .card-body {
@@ -378,8 +410,8 @@ p {
 .bgimage {
   width: 100%;
   height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+  background: 
+    url("https://images.unsplash.com/photo-1549483548-3ef587c84b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

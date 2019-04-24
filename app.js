@@ -16,26 +16,23 @@ $(document).ready(function() {
       //Build an array of the required ingredients
 
       for (let i = 1; i < 20; i++) {
-        $("#recipes").append(`        
-        <div class="card p-2 bd-highlight food-card">
-          <img
-            src="${response.meals[i].strMealThumb}"
-            class="card-img-top img-fluid"
-          alt="none"
-          />
-  
-          <div class="card-body">
-            <h5 class="card-title">${response.meals[i].strMeal}</h5>
-            <a
-              href="#"
-              id="recipe-card"
-              class="btn btn-primary looks-good"
-              value="${response.meals[i].strMeal}"
-              >Looks Good</a
-            >
-          </div>
-        </div>
-        <br />
+        $("#recipes").append(`       
+        
+<div class="card p-2 bd-highlight food-card">
+  <img class="card-img" src="${response.meals[i].strMealThumb}" alt="img">
+  <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+    <h4 class="card-title">${response.meals[i].strMeal}</h4>
+    <h6 class="card-subtitle mb-2">${response.meals[i].strArea}</h6>
+    <div class="link d-flex">
+      <a href="#" id="recipe-card"
+      class="card-link text-warning"
+      value="${response.meals[i].strMeal}"
+      >Looks Good</a>
+    </div>
+  </div>
+</div>
+
+        
         `);
         let currentIngredient = response.meals[0]["strIngredient" + i];
         if (currentIngredient !== "") {
@@ -211,7 +208,7 @@ $(document).ready(function() {
   //displayRecipe("Creamy Tomato Soup");
 
   //This will be the event listener for the food item
-  $(document).on("click", ".looks-good", function(e) {
+  $(document).on("click", "#recipe-card", function(e) {
     //Each button could have either an id, or a value with the meal name in it
     e.preventDefault();
     let mealName = $(this).attr("value");
