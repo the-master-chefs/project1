@@ -220,3 +220,24 @@ $(document).ready(function() {
   });
 
 });
+
+//GeoLocation & Google Maps API
+function initMap() {
+  if (navigator.geolocation) {
+    console.log("It works!");
+    navigator.geolocation.getCurrentPosition(function(position){
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
+      console.log("lat: " + lat);
+      console.log("long: " + long);
+      var mapOptions = {
+        center: new google.maps.LatLng(lat, long),
+        zoom: 5
+      };
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    })
+  } else {
+    console.log("The browser doesn't support this");
+  }
+};
