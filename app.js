@@ -227,8 +227,8 @@ function initMap() {
     navigator.geolocation.getCurrentPosition(function(position){
 
       //Set Coordinates
-      let lat = position.coords.latitude;
-      let long = position.coords.longitude;
+      var lat = position.coords.latitude;
+      var long = position.coords.longitude;
 
       //This is the first map
       var mapOptions = {
@@ -242,7 +242,7 @@ function initMap() {
         title: 'Found you!'
       });
 
-      //Grocery Store
+      //Grocery Store Map
       var request = {
         location: new google.maps.LatLng(lat, long),
         radius: "1500",
