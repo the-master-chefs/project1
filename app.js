@@ -222,37 +222,3 @@ $(document).ready(function() {
 });
 
 //GeoLocation & Google Maps API
-function initMap() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position){
-
-      //Set Coordinates
-      var lat = position.coords.latitude;
-      var long = position.coords.longitude;
-
-      //This is the first map
-      var mapOptions = {
-        center: new google.maps.LatLng(lat, long),
-        zoom: 15
-      };
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, long),
-        map: map,
-        title: 'Found you!'
-      });
-
-      //Grocery Store Map
-      var request = {
-        location: new google.maps.LatLng(lat, long),
-        radius: "1500",
-        //rankBy: "DISTANCE",
-        type: ["supermarket"]
-      };
-
-
-    })
-  } else {
-    console.log("The browser doesn't support geolocation");
-  }
-};
