@@ -378,6 +378,10 @@ p {
   transition: color .15s 
 }
 
+.card-title {
+  color: #F29F05;
+}
+
 .jumbotron {
   background-color: #730202;
   color: white;
@@ -400,6 +404,7 @@ p {
 #recipes .food-card {
   width: 250px;
   border: none;
+  background: linear-gradient(rgba(#000, 0.4));
 }
 
 .card-body {

@@ -197,6 +197,8 @@ $(document).ready(function() {
               <div class="col-md-12">
                 <p>
                   <ul class="unstyled">${listElements.join(" ")}</ul>
+                  <ul class="unstyled">Available: ${matching}</ul>
+                  <ul class="unstyled">Needed: ${needed}</ul>
                 </p>
               </div>
             </div>
