@@ -237,18 +237,11 @@ function initMap() {
   //Using html5 geolocation, redraw the map to show the user's location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      infowindow.setPosition({
+      currentLocation = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
-      });
-      infowindow.setContent("You are here!");
-      infowindow.open(map);
-      map.setCenter({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      });
-      //Next step is to take the user's location and find nearby places
-
+      };
+      map.setCenter(currentLocation);
     })
   } else {
     console.log("Geolocation not working");
