@@ -221,7 +221,7 @@
 	.bgimage {
 		width: 100%;
 		height: 500px;
-		background: url("https://images.unsplash.com/photo-1549483548-3ef587c84b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100");
+		background: url("https://images.unsplash.com/photo-1553639766-450abeeaf06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -314,7 +314,6 @@
 		max-width: 1000px;
 	}
 }
-
 /* tablet */
 @media (min-width: 768px) {
 	h1,
@@ -538,7 +537,7 @@
 	.bgimage {
 		width: 100%;
 		height: 500px;
-		background: url("https://images.unsplash.com/photo-1549483548-3ef587c84b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100");
+		background: url("https://images.unsplash.com/photo-1553639766-450abeeaf06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -670,7 +669,7 @@
 
 	#sub {
 		font-family: 'Satisfy', cursive;
-		color: crimson;
+		color: #BF0404;
 	}
 
 	.img-thumbnail {
@@ -682,7 +681,7 @@
 	}
 
 	.btn {
-		background-color: crimson;
+		background-color: #BF0404;
 		border: none;
 		color: white;
 		display: inline-block;
@@ -702,7 +701,7 @@
 	}
 
 	.card-title {
-		color: #f29f05;
+		color: #F29F05;
 	}
 
 	.jumbotron {
@@ -880,7 +879,7 @@
 	}
 
 	#app-description {
-		color: crimson;
+		color: #BF0404;
 		font-family: 'Satisfy', cursive;
 	}
 	#title {
@@ -912,7 +911,7 @@
 		font-size: 2.5rem;
 		margin-bottom: 0;
 		font-family: 'Satisfy', cursive;
-		color: crimson;
+		color: #BF0404;
 	}
 
 	#recipe-origin {
