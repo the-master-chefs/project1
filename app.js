@@ -272,7 +272,20 @@ function initMap() {
     }
     markers = [];
     getGroceries(currentLocation);
-  })
+  });
+
+  //Event Listener for Fast Food
+  $(document).on("click", "#ffButton", function(event){
+    event.preventDefault();
+    //TODO: Clear user location marker
+
+    //Clear place markers
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    markers = [];
+    getFastFood(currentLocation);
+  });
 
 }
 
@@ -328,3 +341,12 @@ function getGroceries (location) {
   }, callback);
 }
 
+function getFastFood (location) {
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: ['fast food']
+  }, callback);
+}
