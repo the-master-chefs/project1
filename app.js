@@ -16,26 +16,20 @@ $(document).ready(function() {
       //Build an array of the required ingredients
 
       for (let i = 1; i < 20; i++) {
-        $("#recipes").append(`        
-        <div class="card p-2 bd-highlight food-card">
-          <img
-            src="${response.meals[i].strMealThumb}"
-            class="card-img-top img-fluid"
-          alt="none"
-          />
-  
-          <div class="card-body">
-            <h5 class="card-title">${response.meals[i].strMeal}</h5>
-            <a
-              href="#"
-              id="recipe-card"
-              class="btn btn-primary looks-good"
-              value="${response.meals[i].strMeal}"
-              >Looks Good</a
-            >
-          </div>
-        </div>
-        <br />
+        $("#recipes").append(`       
+        
+<div class="food-card hover-blur">
+<a href="#" id="recipe-card" class="card-link" value="${response.meals[i].strMeal}">
+  <img class="card-img" src="${response.meals[i].strMealThumb}" alt="img">
+  <div class="card-img-overlay text-white d-flex flex-column justify-content-center" style="top: 118px;">
+    <h4 class="card-title">${response.meals[i].strMeal}</h4>
+    <h5 class="card-subtitle mb-2" id="sub">${response.meals[i].strArea}</h5>
+    </div>
+    </a>
+  </div>
+</div>
+
+        
         `);
         let currentIngredient = response.meals[0]["strIngredient" + i];
         if (currentIngredient !== "") {
@@ -185,14 +179,14 @@ $(document).ready(function() {
               <p id="calories">Calories will go here!</p>
             </div>
             <div id="title-section">
-              <p id="recipe-title" class="text-center">${meal}</p>
-              <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
+              <p id="recipe-title" class="text-left">${meal}</p>
+              <p id="recipe-origin" class="text-left">Origin Culture: ${foodObj.strArea}</p>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
+                <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="food">
               </div>
-              <div id="ingredient-list" class="col-md-6 d-flex flex-column text-center justify-content-center">
+              <div id="ingredient-list" class="col-md-6 d-flex flex-column text-right justify-content-center">
                 ${ingredientDisplay.join(" ")}
               </div>
             </div>
@@ -200,6 +194,8 @@ $(document).ready(function() {
               <div class="col-md-12">
                 <p>
                   <ul class="unstyled">${listElements.join(" ")}</ul>
+                  <ul class="unstyled">Available: ${matching}</ul>
+                  <ul class="unstyled">Needed: ${needed}</ul>
                 </p>
               </div>
             </div>
@@ -211,7 +207,7 @@ $(document).ready(function() {
   //displayRecipe("Creamy Tomato Soup");
 
   //This will be the event listener for the food item
-  $(document).on("click", ".looks-good", function(e) {
+  $(document).on("click", "#recipe-card", function(e) {
     //Each button could have either an id, or a value with the meal name in it
     e.preventDefault();
     let mealName = $(this).attr("value");
