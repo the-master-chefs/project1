@@ -231,10 +231,6 @@ function initMap() {
     lat: 30.2870,
     lng: -97.7292 
   }
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 38.9072, lng: -77.0369},
-    zoom: 15
-  });
 
   infowindow = new google.maps.InfoWindow;
 
@@ -258,7 +254,10 @@ function initMap() {
     console.log("Geolocation not working");
   }
 
-  
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: currentLocation,
+    zoom: 15
+  });
 
 }
 
