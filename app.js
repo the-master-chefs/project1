@@ -248,7 +248,7 @@ function initMap() {
       }
       markers = [];
 
-      getGroceries(currentLocation);
+      getUser(currentLocation);
 
     })
   } else {
@@ -259,7 +259,7 @@ function initMap() {
     center: currentLocation,
     zoom: 13
   });
-  getGroceries(currentLocation);
+  getUser(currentLocation);
 
 }
 
