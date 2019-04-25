@@ -264,6 +264,13 @@ function initMap() {
   //Event Listener for Grocery Store
   $(document).on("click", "#gsButton", function(event){
     event.preventDefault();
+    //TODO: Clear user location marker
+
+    //Clear place markers
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    markers = [];
     getGroceries(currentLocation);
   })
 
@@ -310,7 +317,7 @@ function getUser (location) {
   });
 }
 
-//TODO: getStuff and getFat with click handlers
+//TODO: getStuff and getFastFood with click handlers
 function getGroceries (location) {
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
