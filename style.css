@@ -776,5 +776,9 @@ p {
 #recipe-tron-inner {
   max-width: 1000px;
 }
-}
 
+
+#submit {
+  margin-top: 1px;
+}
+}
