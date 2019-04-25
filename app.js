@@ -259,6 +259,7 @@ function initMap() {
     center: currentLocation,
     zoom: 13
   });
+  getGroceries(currentLocation);
 
 }
 
