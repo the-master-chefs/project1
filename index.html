@@ -34,6 +34,9 @@
       <i class="fas fa-ice-cream">
         <p class="float-right">Tasty Decisions</p></i
       >
+      <p class="float-left">
+        <a id="map-toggle" href="#" class="fas fa-map-marked" data-toggle="modal" data-target="#exampleModal"></a>
+      </p>
     </nav>
     <section class="bgimage">
       <div class="container-fluid">
@@ -150,16 +153,36 @@
     </div>
 
     <!--Map Modal-->
-    <div class="row d-flex justify-content-center m-1">
-      <div id="map" style="width:500px; height: 500px; border: 2px solid black; text-align: center;">
-      
-      </div>
-      <div id="map-buttons" class="m-3 d-flex flex-column justify-content-center">
-        <button id="gsButton" class="btn btn-success">Need Groceries?</button>
-        <button id="dsButton" class="btn btn-success">Need Supplies?</button>
-        <button id="ffButton" class="btn btn-success">Give up?</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+
+    <!--Modal Content-->
+    <div class="modal-body">
+      <div class="row d-flex justify-content-center m-1">
+        <div id="map" style="width:500px; height: 500px; border: 2px solid black; text-align: center;">
+        
+        </div>
+        <div id="map-buttons" class="m-3 d-flex flex-column justify-content-center">
+          <button id="gsButton" class="btn btn-success">Need Groceries?</button>
+          <button id="dsButton" class="btn btn-success">Need Supplies?</button>
+          <button id="ffButton" class="btn btn-success">Give up?</button>
+        </div>
       </div>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" data-dismiss="modal">Close</button>
+    </div>
+
+  </div>
+  </div>
+  </div>
 
 
     <!--jQuery-->
