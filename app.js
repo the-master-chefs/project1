@@ -311,9 +311,9 @@ function createMarker(place) {
   markers.push(marker);
   
   google.maps.event.addListener(marker, "click", function() {
-    //TODO: Add more information
+    //TODO: Add more information using getDetails service
     infowindow.setContent(
-      `<b>Name</b>: ${place.name}` 
+      `<strong>Name</strong>: ${place.name}`
     );
     infowindow.open(map, this);
     //marker.setAnimation(google.maps.Animation.BOUNCE);
