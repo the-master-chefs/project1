@@ -226,7 +226,11 @@ var map;
 var infowindow;
 
 function initMap() {
-  //Create a map (starts at DC)
+  //Create a map (starts at Thompson Conference Center)
+  var currentLocation = {
+    lat: 30.2870,
+    lng: -97.7292 
+  }
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 38.9072, lng: -77.0369},
     zoom: 15
