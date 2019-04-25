@@ -233,8 +233,6 @@ function initMap() {
     lng: -97.7292 
   }
 
-  infowindow = new google.maps.InfoWindow;
-
   //Using html5 geolocation, redraw the map to show the user's location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -242,8 +240,16 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
       map.setCenter(currentLocation);
+      //Display markers and then clear array
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
+
       getGroceries(currentLocation);
+
     })
   } else {
     console.log("Geolocation not working");
@@ -251,7 +257,7 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: currentLocation,
-    zoom: 15
+    zoom: 13
   });
 
 }
@@ -267,7 +273,7 @@ function createMarker(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
-}
+};
 
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -283,8 +289,8 @@ function getGroceries (location) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: location,
-    radius: 1500,
-    type: ['supermarket']
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: ['grocery store']
   }, callback);
 }
 
