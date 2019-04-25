@@ -18,17 +18,14 @@ $(document).ready(function() {
       for (let i = 1; i < 20; i++) {
         $("#recipes").append(`       
         
-<div class="card p-2 bd-highlight food-card">
+<div class="food-card hover-blur">
+<a href="#" id="recipe-card" class="card-link" value="${response.meals[i].strMeal}">
   <img class="card-img" src="${response.meals[i].strMealThumb}" alt="img">
-  <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+  <div class="card-img-overlay text-white d-flex flex-column justify-content-center" style="top: 118px;">
     <h4 class="card-title">${response.meals[i].strMeal}</h4>
-    <h6 class="card-subtitle mb-2">${response.meals[i].strArea}</h6>
-    <div class="link d-flex">
-      <a href="#" id="recipe-card"
-      class="card-link text-warning"
-      value="${response.meals[i].strMeal}"
-      >Looks Good</a>
+    <h5 class="card-subtitle mb-2" id="sub">${response.meals[i].strArea}</h5>
     </div>
+    </a>
   </div>
 </div>
 
@@ -182,14 +179,14 @@ $(document).ready(function() {
               <p id="calories">Calories will go here!</p>
             </div>
             <div id="title-section">
-              <p id="recipe-title" class="text-center">${meal}</p>
-              <p id="recipe-origin" class="text-center">Origin Culture: ${foodObj.strArea}</p>
+              <p id="recipe-title" class="text-left">${meal}</p>
+              <p id="recipe-origin" class="text-left">Origin Culture: ${foodObj.strArea}</p>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="">
+                <img class="img-fluid img-thumbnail" src="${foodObj.strMealThumb}" alt="food">
               </div>
-              <div id="ingredient-list" class="col-md-6 d-flex flex-column text-center justify-content-center">
+              <div id="ingredient-list" class="col-md-6 d-flex flex-column text-right justify-content-center">
                 ${ingredientDisplay.join(" ")}
               </div>
             </div>

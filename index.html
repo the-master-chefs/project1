@@ -13,10 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Hammersmith+One"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 
@@ -44,17 +41,16 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 focus">
             <div class="text">
-              <h2>In need of a recipe, and fast?</h2>
-              <p id="app-description">
-                We provide a great service by taking the guesswork out of your
-                next meal!
-              </p>
-
-              <div class="card">
+              <div class="card" id="intro">
                 <div class="card-header">
-                  <h5>First off, what's in your cabinet?</h5>
+                    <h2 id="title">In need of a recipe, and fast?</h2>
+                    <p id="app-description">
+                      We provide a great service by taking the guesswork out of your
+                      next meal!
+                    </p>
                 </div>
                 <div class="card-body">
+                    <h5>First off, what's in your cabinet?</h5>
                   <button
                     type="button"
                     id="salt"
@@ -126,23 +122,13 @@
       </div>
     </div>
     <div class="container">
-      <form>
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            id="keyword"
-            class="form-control"
-            placeholder="What are you feeling like?"
-            aria-label="What are you feeling like?"
-            aria-describedby="button-addon2"
-          />
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="submit">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
+        <form class="form-inline">
+            <div class="md-form my-0">
+              <input class="form-control mr-sm-2" type="text" id="keyword" placeholder="What do YOU want?" aria-label="Search">
+            </div>
+            <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit" id="submit">Get Recipes</button>
+          </form>
+
 
       <div class="row">
         <div
