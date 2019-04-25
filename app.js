@@ -242,6 +242,7 @@ function initMap() {
         lng: position.coords.longitude
       };
       map.setCenter(currentLocation);
+      getGroceries(currentLocation);
     })
   } else {
     console.log("Geolocation not working");
@@ -254,23 +255,13 @@ function initMap() {
 
 }
 
-//These functions will be used for search queries
-function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
-    }
-  }
+function getGroceries (location) {
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    radius: 1500,
+    type: ['supermarket']
+  }, callback);
 }
 
-function createMarker(place) {
-  var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location
-  });
-
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
-  });
-}
