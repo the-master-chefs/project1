@@ -224,6 +224,7 @@ $(document).ready(function() {
 //GeoLocation & Google Maps API
 var map;
 var infowindow;
+var markers = [];
 
 function initMap() {
   //Create a map (starts at Thompson Conference Center)
@@ -255,13 +256,27 @@ function initMap() {
 
 }
 
-function callback (results, status) {
+function createMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+  markers.push(marker);
+  
+  google.maps.event.addListener(marker, "click", function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
+
+function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i< results.length; i++) {
       createMarker(results[i]);
     }
   }
-}
+};
+
 
 function getGroceries (location) {
   infowindow = new google.maps.InfoWindow();
