@@ -288,6 +288,22 @@ function callback(results, status) {
   }
 };
 
+function getUser (location) {
+  //Make new infowindow
+  infowindow = new google.maps.InfoWindow();
+  //Make new marker
+  var marker = new google.maps.Marker({
+    map: map,
+    position: location
+  });
+  //Marker event listener
+  google.maps.event.addListener(marker, "click", function() {
+    infowindow.setContent("Found you!");
+    infowindow.open(map, this);
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  });
+}
+
 //TODO: getStuff and getFat with click handlers
 function getGroceries (location) {
   infowindow = new google.maps.InfoWindow();
