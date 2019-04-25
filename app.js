@@ -179,8 +179,8 @@ $(document).ready(function() {
               <p id="calories">Calories will go here!</p>
             </div>
             <div id="title-section">
-              <p id="recipe-title" class="text-left">${meal}</p>
-              <p id="recipe-origin" class="text-left">Origin Culture: ${foodObj.strArea}</p>
+              <p id="recipe-title" class="text-left">${toTitleCase(meal)}</p>
+              <p id="recipe-origin" class="text-left">Origin: ${foodObj.strArea}</p>
             </div>
             <div class="row">
               <div class="col-md-6">
@@ -194,8 +194,8 @@ $(document).ready(function() {
               <div class="col-md-12">
                 <p>
                   <ul class="unstyled">${listElements.join(" ")}</ul>
-                  <ul class="unstyled">Available: ${matching}</ul>
-                  <ul class="unstyled">Needed: ${needed}</ul>
+                  <ul class="unstyled"><span id="val">Available:</span> ${toTitleCase(matching.join(', '))}</ul>
+                  <ul class="unstyled"><span id="val">Needed:</span> ${toTitleCase(needed.join(', '))}</ul>
                 </p>
               </div>
             </div>

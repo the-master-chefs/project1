@@ -34,7 +34,19 @@
     font-family: 'Satisfy', cursive;
   }
   
+  #sub {
+    font-family: 'Satisfy', cursive;
+    color: crimson;
+  }
   
+  .img-thumbnail {
+    padding: 0px;
+  }
+  
+  #val {
+    font-weight: bold;
+  }
+
   .btn {
     background-color: crimson;
     border: none;
@@ -323,6 +335,14 @@
   #sub {
     font-family: 'Satisfy', cursive;
     color: crimson;
+  }
+  
+  .img-thumbnail {
+    padding: 0px;
+  }
+  
+  #val {
+    font-weight: bold;
   }
 
   .btn {
@@ -615,6 +635,14 @@ p {
   color: crimson;
 }
 
+.img-thumbnail {
+  padding: 0px;
+}
+
+#val {
+  font-weight: bold;
+}
+
 .btn {
   background-color: crimson;
   border: none;
@@ -629,6 +657,10 @@ p {
   line-height: 1.5;
   border-radius: .25rem;
   transition: color .15s 
+}
+
+.btn.btn-square {
+  border-radius: 0;
 }
 
 .card-title {
