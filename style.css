@@ -320,7 +320,11 @@
     font-family: 'Satisfy', cursive;
   }
   
-  
+  #sub {
+    font-family: 'Satisfy', cursive;
+    color: crimson;
+  }
+
   .btn {
     background-color: crimson;
     border: none;
@@ -606,6 +610,10 @@ p {
   font-family: 'Satisfy', cursive;
 }
 
+#sub {
+  font-family: 'Satisfy', cursive;
+  color: crimson;
+}
 
 .btn {
   background-color: crimson;
