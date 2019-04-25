@@ -281,6 +281,7 @@ function createMarker(place) {
   markers.push(marker);
   
   google.maps.event.addListener(marker, "click", function() {
+    //TODO: Add link to infowindow
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
@@ -289,11 +290,13 @@ function createMarker(place) {
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i< results.length; i++) {
+      //TODO: Is it just one or all nearest places?
       createMarker(results[i]);
     }
   }
 };
 
+//TODO: getStuff and getFat with click handlers
 function getGroceries (location) {
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
