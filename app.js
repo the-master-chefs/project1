@@ -269,21 +269,13 @@ function createMarker(place) {
     position: place.geometry.location
   });
   
-  //Marker Animation
-  marker.addListener('click', function() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null)
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  });
-
   markers.push(marker);
   
   google.maps.event.addListener(marker, "click", function() {
     //TODO: Add link to infowindow
     infowindow.setContent(place.name);
     infowindow.open(map, this);
+    marker.setAnimation(google.maps.Animation.BOUNCE);
   });
 };
 
