@@ -261,6 +261,12 @@ function initMap() {
   });
   getUser(currentLocation);
 
+  //Event Listener for Grocery Store
+  $(document).on("click", "#gsButton", function(event){
+    event.preventDefault();
+    getGroceries(currentLocation);
+  })
+
 }
 
 function createMarker(place) {
