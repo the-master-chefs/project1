@@ -268,6 +268,16 @@ function createMarker(place) {
     map: map,
     position: place.geometry.location
   });
+  
+  //Marker Animation
+  marker.addListener('click', function() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null)
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  });
+
   markers.push(marker);
   
   google.maps.event.addListener(marker, "click", function() {
@@ -283,7 +293,6 @@ function callback(results, status) {
     }
   }
 };
-
 
 function getGroceries (location) {
   infowindow = new google.maps.InfoWindow();
