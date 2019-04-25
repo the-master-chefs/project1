@@ -290,7 +290,7 @@ function initMap() {
     //Event Listener for Big Box Store
     $(document).on("click", "#dsButton", function(event){
       event.preventDefault();
-      //TODO: Clear user location marker
+      //TODO: Clear user location marker. Use callback
   
       //Clear place markers
       for (var i = 0; i < markers.length; i++) {
@@ -311,10 +311,12 @@ function createMarker(place) {
   markers.push(marker);
   
   google.maps.event.addListener(marker, "click", function() {
-    //TODO: Add link to infowindow
-    infowindow.setContent(place.name);
+    //TODO: Add more information
+    infowindow.setContent(
+      `<b>Name</b>: ${place.name}` 
+    );
     infowindow.open(map, this);
-    marker.setAnimation(google.maps.Animation.BOUNCE);
+    //marker.setAnimation(google.maps.Animation.BOUNCE);
   });
 };
 
@@ -343,7 +345,6 @@ function getUser (location) {
   });
 }
 
-//TODO: getStuff and getFastFood with click handlers
 function getGroceries (location) {
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
