@@ -287,6 +287,19 @@ function initMap() {
     getFastFood(currentLocation);
   });
 
+    //Event Listener for Big Box Store
+    $(document).on("click", "#dsButton", function(event){
+      event.preventDefault();
+      //TODO: Clear user location marker
+  
+      //Clear place markers
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
+      getSupplies(currentLocation);
+    });
+
 }
 
 function createMarker(place) {
@@ -348,5 +361,15 @@ function getFastFood (location) {
     location: location,
     rankBy: google.maps.places.RankBy.DISTANCE,
     keyword: ['fast food']
+  }, callback);
+}
+
+function getSupplies (location) {
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: ['big-box store']
   }, callback);
 }
