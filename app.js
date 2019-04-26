@@ -383,7 +383,7 @@ function getSupplies (location) {
   service.nearbySearch({
     location: location,
     rankBy: google.maps.places.RankBy.DISTANCE,
-    keyword: ['big-box store']
+    keyword: ['target walmart']
   }, callback);
 }
   //scrolls page from recipe search click to recipe cards div
