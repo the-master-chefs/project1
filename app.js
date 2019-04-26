@@ -148,7 +148,6 @@ $(document).ready(function() {
         }
       };
       let ingredientDisplay = currentIngredientList.map(makePara);
-      calTotal(currentIngredientList);
 
 			//Check for matching ingredients
 			let matching = [];
@@ -178,7 +177,7 @@ $(document).ready(function() {
 			$('#recipe-tron').html(`
           <div id="recipe-tron-inner" class="jumbotron mx-auto">
             <div class="text-right">
-              <p id="calories">Calories will go here!</p>
+              <p id="calories">Loading...</p>
             </div>
             <div id="title-section">
               <p id="recipe-title" class="text-left">${toTitleCase(meal)}</p>
@@ -202,7 +201,10 @@ $(document).ready(function() {
               </div>
             </div>
           </div>
-        `);
+      `);
+      //$(document).on("click", "#calories", function(){
+        calTotal(currentIngredientList);
+      //})
 		});
 	};
 	//Test
@@ -251,10 +253,10 @@ $(document).ready(function() {
         localCalories.push(response.calories);
         totalCalories += response.calories;
         if (localCalories.length === array.length) {
-          alert(totalCalories);
+          $("#calories").empty().text(`${totalCalories} Calories`);
          }
       });
     }
   };
-  
+
 });
