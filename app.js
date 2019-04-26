@@ -17,7 +17,7 @@ $(document).ready(function() {
 				$('#recipes').append(`       
         
 <div class="food-card hover-blur">
-<a href="#" id="recipe-card" class="card-link" value="${response.meals[i].strMeal}">
+<a href="#" class="card-link" value="${response.meals[i].strMeal}">
   <img class="card-img" src="${response.meals[i].strMealThumb}" alt="img">
   <div class="card-img-overlay text-white d-flex flex-column justify-content-center" style="top: 118px;">
     <h4 class="card-title">${response.meals[i].strMeal}</h4>
@@ -101,7 +101,8 @@ $(document).ready(function() {
 		e.preventDefault();
 		console.log('You want ' + $('#keyword').val());
 		food.push($('#keyword').val());
-		food.map(getRecipe);
+    food.map(getRecipe);
+    scroll();
 	});
 
 	//comparing ingredients between recipe and master
@@ -210,5 +211,25 @@ $(document).ready(function() {
 		let mealName = $(this).attr('value');
 		$('#recipe-tron').empty();
 		displayRecipe(mealName);
-	});
+  });
+  
+  $(document).on("click", ".card-link", function(event) {
+    event.preventDefault();
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#recipe-tron").offset().top
+      },
+      1000
+    );
+  });
+
+  //scrolls page from recipe search click to recipe cards div
+  function scroll() {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#recipes").offset().top
+      },
+      1000
+    );
+  }
 });
