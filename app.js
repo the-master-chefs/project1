@@ -229,6 +229,161 @@ $(document).ready(function() {
     );
   });
 
+});
+
+//GeoLocation & Google Maps API
+var map;
+var infowindow;
+var markers = [];
+
+function initMap() {
+  //Create a map (starts at Thompson Conference Center)
+  var currentLocation = {
+    lat: 30.2870,
+    lng: -97.7292 
+  }
+
+  //Using html5 geolocation, redraw the map to show the user's location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      currentLocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      map.setCenter(currentLocation);
+      //Display markers and then clear array
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
+
+      getUser(currentLocation);
+
+    })
+  } else {
+    console.log("Geolocation not working");
+  }
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: currentLocation,
+    zoom: 13
+  });
+  getUser(currentLocation);
+
+  //Event Listener for Grocery Store
+  $(document).on("click", "#gsButton", function(event){
+    event.preventDefault();
+    //TODO: Clear user location marker
+
+    //Clear place markers
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    markers = [];
+    getGroceries(currentLocation);
+  });
+
+  //Event Listener for Fast Food
+  $(document).on("click", "#ffButton", function(event){
+    event.preventDefault();
+    //TODO: Clear user location marker
+
+    //Clear place markers
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    markers = [];
+    getFastFood(currentLocation);
+  });
+
+    //Event Listener for Big Box Store
+    $(document).on("click", "#dsButton", function(event){
+      event.preventDefault();
+      //TODO: Clear user location marker. Use callback
+  
+      //Clear place markers
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
+      getSupplies(currentLocation);
+    });
+
+}
+
+function createMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+  
+  markers.push(marker);
+  
+  google.maps.event.addListener(marker, "click", function() {
+    //TODO: Add more information using getDetails service
+    infowindow.setContent(
+      `<strong>Name</strong>: ${place.name}`
+    );
+    infowindow.open(map, this);
+    //marker.setAnimation(google.maps.Animation.BOUNCE);
+  });
+};
+
+function callback(results, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i< results.length; i++) {
+      //TODO: Is it just one or all nearest places?
+      createMarker(results[i]);
+    }
+  }
+};
+
+function getUser (location) {
+  //Make new infowindow
+  infowindow = new google.maps.InfoWindow();
+  //Make new marker
+  var marker = new google.maps.Marker({
+    map: map,
+    position: location
+  });
+  //Marker event listener
+  google.maps.event.addListener(marker, "click", function() {
+    infowindow.setContent("Found you!");
+    infowindow.open(map, this);
+    //marker.setAnimation(google.maps.Animation.BOUNCE);
+  });
+}
+
+function getGroceries (location) {
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: ['grocery store']
+  }, callback);
+}
+
+function getFastFood (location) {
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: ['fast food']
+  }, callback);
+}
+
+function getSupplies (location) {
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: ['big-box store']
+  }, callback);
+}
   //scrolls page from recipe search click to recipe cards div
   function scroll() {
     $([document.documentElement, document.body]).animate(
@@ -258,5 +413,3 @@ $(document).ready(function() {
       });
     }
   };
-
-});

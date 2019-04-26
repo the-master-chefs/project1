@@ -37,6 +37,9 @@
           <img src="./fork.svg" width="30" height="30" class="d-inline-block align-top" alt="fork">
           <span id="tag">Tasty Delicious</span>
         </a>
+        <p class="float-left">
+          <a id="map-toggle" href="#" class="fas fa-map-marked" data-toggle="modal" data-target="#mapModal"></a>
+        </p>
       </nav>
     <section class="bgimage">
       <div class="container-fluid">
@@ -138,6 +141,41 @@
           id="recipes"
         ></div>
       </div>
+
+    </div>
+
+    <!--Map Modal-->
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+    <!--Map Modal Content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapModalLabel">Ready to eat?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+      <div class="modal-body">
+        <div class="row d-flex justify-content-center m-1">
+          <div id="map" style="width:500px; height: 500px; border: 2px solid black; text-align: center;">
+          
+          </div>
+          <div id="map-buttons" class="m-3 d-flex flex-column justify-content-between">
+            <button id="gsButton" class="btn btn-success m-1">Need Groceries?</button>
+            <button id="dsButton" class="btn btn-success m-1">Need Supplies?</button>
+            <button id="ffButton" class="btn btn-success m-1">Give up?</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+    </div>
     </div>
 
     <!--jQuery-->
@@ -153,5 +191,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./app.js"></script>
+    <!--Google Maps API-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy1Wnno6vo0udczMq5RuCIpLOr7OgB_S4&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>
