@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" 
+      type="image/png" 
+      href="./favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Tasty Decisions</title>
     <link
@@ -12,10 +15,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Hammersmith+One"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans"
       rel="stylesheet"
@@ -29,76 +32,85 @@
   </head>
   <body>
     <!-- Begin code here -->
-    <nav class="navbar navbar-light">
-      <i class="fas fa-ice-cream">
-        <p class="float-right">Tasty Decisions</p></i
-      >
-    </nav>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="./fork.svg" width="30" height="30" class="d-inline-block align-top" alt="fork">
+          <span id="tag">Tasty Delicious</span>
+        </a>
+        <p class="float-left">
+          <a id="map-toggle" href="#" class="fas fa-map-marked" data-toggle="modal" data-target="#mapModal"></a>
+        </p>
+      </nav>
     <section class="bgimage">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 focus">
             <div class="text">
-              <h2>In need of a recipe, and fast?</h2>
-              <p>
-                <span id="app-description"
-                  >We provide a great service by taking the guesswork out of
-                  your next meal!</span
-                >
-              </p>
-
-              <div class="card">
+              <div class="card" id="intro">
                 <div class="card-header">
-                  <h5>First off, what's in your cabinet?</h5>
+                    <h2 id="title">In need of a recipe, and fast?</h2>
+                    <p id="app-description">
+                      We provide a great service by taking the guesswork out of your
+                      next meal!
+                    </p>
                 </div>
                 <div class="card-body">
+                    <h5>First off, what's in your cabinet?</h5>
                   <button
                     type="button"
                     id="salt"
-                    class="btn btn-dark"
-                    value="salt"
+                    class="btn btn-dark btn-square"
+                    value="Salt"
                   >
-                    Salt
+                    <span id="val">SALT</span>
                   </button>
                   <button
                     type="button"
                     id="pepper"
-                    class="btn btn-dark"
-                    value="pepper"
+                    class="btn btn-dark btn-square"
+                    value="Pepper"
                   >
-                    Pepper
+                  <span id="val">PEPPER</span>
                   </button>
                   <button
                     type="button"
                     id="olive-oil"
-                    class="btn btn-dark"
-                    value="olive oil"
+                    class="btn btn-dark btn-square"
+                    value="Olive Oil"
                   >
-                    Olive Oil
+                  <span id="val">OLIVE OIL</span>
                   </button>
                   <button
                     type="button"
                     id="baking-soda"
-                    class="btn btn-dark"
-                    value="baking soda"
+                    class="btn btn-dark btn-square"
+                    value="Baking Soda"
                   >
-                    Baking Soda
+                  <span id="val">BAKING SODA</span>
                   </button>
                   <button
                     type="button"
                     id="eggs"
-                    class="btn btn-dark"
-                    value="eggs"
+                    class="btn btn-dark btn-square"
+                    value="Eggs"
                   >
-                    Eggs
+                  <span id="val">EGGS</span>
                   </button>
                   <button
                     type="button"
                     id="butter"
-                    class="btn btn-dark"
-                    value="butter"
+                    class="btn btn-dark btn-square"
+                    value="Butter"
                   >
-                    Butter
+                  <span id="val">BUTTER</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="water"
+                    class="btn btn-dark btn-square"
+                    value="Water"
+                  >
+                  <span id="val">WATER</span>
                   </button>
                 </div>
               </div>
@@ -107,30 +119,66 @@
         </div>
       </div>
     </section>
-    <div class="container">
-      <form>
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            id="keyword"
-            class="form-control"
-            placeholder="What are you feeling like, chicken, beef, fish?"
-            aria-label="What are you feeling like, chicken, beef, fish?"
-            aria-describedby="button-addon2"
-          />
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="submit">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <div class="row">
-        <span id="recipes"> </span>
+    <div id="recipe-tron" class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <p class="lead">
+          Search for a base food, and we'll provide the recipes. Give it a try.
+        </p>
       </div>
     </div>
+    <div class="container">
+        <form class="form-inline">
+            <div class="md-form my-0">
+              <input class="form-control mr-sm-2" type="text" id="keyword" placeholder="What do YOU want?" aria-label="Search">
+            </div>
+            <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3 btn-square" type="submit" id="submit">Get Recipes</button>
+          </form>
 
+
+      <div class="row">
+        <div
+          class="d-flex flex-row flex-wrap bd-highlight mb-3"
+          id="recipes"
+        ></div>
+      </div>
+
+    </div>
+
+    <!--Map Modal-->
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+    <!--Map Modal Content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapModalLabel">Ready to eat?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+      <div class="modal-body">
+        <div class="row d-flex justify-content-center m-1">
+          <div id="map" style="width:500px; height: 500px; border: 2px solid black; text-align: center;">
+          
+          </div>
+          <div id="map-buttons" class="m-3 d-flex flex-column justify-content-between">
+            <button id="gsButton" class="btn btn-success m-1">Need Groceries?</button>
+            <button id="dsButton" class="btn btn-success m-1">Need Supplies?</button>
+            <button id="ffButton" class="btn btn-success m-1">Give up?</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+    </div>
+    </div>
+
+    <!--jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -143,5 +191,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./app.js"></script>
+    <!--Google Maps API-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy1Wnno6vo0udczMq5RuCIpLOr7OgB_S4&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>
