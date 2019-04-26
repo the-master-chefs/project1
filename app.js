@@ -136,14 +136,17 @@ $(document).ready(function() {
 
 			let currentIngredientList = [];
 			for (let i = 1; i < 20; i++) {
-				let currentIngredient = response.meals[0]['strIngredient' + i];
-				if (currentIngredient !== '') {
-					currentIngredientList.push(currentIngredient);
-				} else {
-					console.log(currentIngredientList);
-					break;
-				}
-			}
+        let currentIngredient =
+          response.meals[0]["strMeasure" + i] +
+          " " +
+          response.meals[0]["strIngredient" + i];
+        if (currentIngredient !== "") {
+          currentIngredientList.push(currentIngredient);
+        } else {
+          console.log(currentIngredientList);
+          break;
+        }
+      };
 			let ingredientDisplay = currentIngredientList.map(makePara);
 
 			//Check for matching ingredients
