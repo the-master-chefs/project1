@@ -10,7 +10,7 @@ $(document).ready(function() {
 			url: queryURL,
 			method: 'GET'
 		}).then((response) => {
-			console.log(response);
+			//console.log(response);
 			//Build an array of the required ingredients
 
 			for (let i = 1; i < 20; i++) {
@@ -37,11 +37,11 @@ $(document).ready(function() {
 				}
 			}
 			//log api url
-			console.log(queryURL);
+			//console.log(queryURL);
 			//Display Ingredients
-			console.log(ingredients);
+			//console.log(ingredients);
 			//Display Recipe
-			console.log(response.meals[0].strInstructions);
+			//console.log(response.meals[0].strInstructions);
 		});
 	};
 
@@ -49,49 +49,49 @@ $(document).ready(function() {
 
 	$('#salt').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have salt');
+		//console.log('You have salt');
 		cabinet.push($('#salt').val());
 		$('#salt').attr('disabled', 'disabled');
 	});
 
 	$('#pepper').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have pepper');
+		//console.log('You have pepper');
 		cabinet.push($('#pepper').val());
 		$('#pepper').attr('disabled', 'disabled');
 	});
 
 	$('#olive-oil').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have olive oil');
+		//console.log('You have olive oil');
 		cabinet.push($('#olive-oil').val());
 		$('#olive-oil').attr('disabled', 'disabled');
 	});
 
 	$('#baking-soda').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have baking soda');
+		//console.log('You have baking soda');
 		cabinet.push($('#baking-soda').val());
 		$('#baking-soda').attr('disabled', 'disabled');
 	});
 
 	$('#eggs').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have eggs');
+		//console.log('You have eggs');
 		cabinet.push($('#eggs').val());
 		$('#eggs').attr('disabled', 'disabled');
 	});
 
 	$('#butter').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have butter');
+		//console.log('You have butter');
 		cabinet.push($('#butter').val());
 		$('#butter').attr('disabled', 'disabled');
 	});
 
 	$('#water').on('click', function(e) {
 		e.preventDefault();
-		console.log('You have water');
+		//console.log('You have water');
 		cabinet.push($('#water').val());
 		$('#water').attr('disabled', 'disabled');
 	});
@@ -99,7 +99,7 @@ $(document).ready(function() {
 	//collecting keyword for api search
 	$('form').on('submit', function(e) {
 		e.preventDefault();
-		console.log('You want ' + $('#keyword').val());
+		//console.log('You want ' + $('#keyword').val());
 		food.push($('#keyword').val());
     food.map(getRecipe);
     scroll();
@@ -143,7 +143,7 @@ $(document).ready(function() {
         if (currentIngredient !== "") {
           currentIngredientList.push(currentIngredient);
         } else {
-          console.log(currentIngredientList);
+          //console.log(currentIngredientList);
           break;
         }
       };
@@ -168,9 +168,9 @@ $(document).ready(function() {
 				return str.join(' ');
 			};
 
-			console.log('Cabinet: ' + cabinet.join(', '));
-			console.log('Matching: ' + toTitleCase(matching.join(', ')));
-			console.log('Needed: ' + toTitleCase(needed.join(', ')));
+			//console.log('Cabinet: ' + cabinet.join(', '));
+			//console.log('Matching: ' + toTitleCase(matching.join(', ')));
+			//console.log('Needed: ' + toTitleCase(needed.join(', ')));
 
 			//This will be where we append the information to the jumbotron.
 			//I'll edit this with the corresponding ids, and classes
@@ -262,7 +262,7 @@ function initMap() {
 
     })
   } else {
-    console.log("Geolocation not working");
+    //console.log("Geolocation not working");
   }
 
   map = new google.maps.Map(document.getElementById('map'), {
