@@ -202,9 +202,9 @@ $(document).ready(function() {
             </div>
           </div>
       `);
-      //$(document).on("click", "#calories", function(){
-        calTotal(currentIngredientList);
-      //})
+      
+      calTotal(currentIngredientList);
+
 		});
 	};
 	//Test
