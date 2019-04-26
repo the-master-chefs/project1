@@ -136,15 +136,18 @@ $(document).ready(function() {
 
 			let currentIngredientList = [];
 			for (let i = 1; i < 20; i++) {
-				let currentIngredient = response.meals[0]['strIngredient' + i];
-				if (currentIngredient !== '') {
-					currentIngredientList.push(currentIngredient);
-				} else {
-					console.log(currentIngredientList);
-					break;
-				}
-			}
-			let ingredientDisplay = currentIngredientList.map(makePara);
+        let currentIngredient =
+          response.meals[0]["strMeasure" + i] +
+          " " +
+          response.meals[0]["strIngredient" + i];
+        if (currentIngredient !== "") {
+          currentIngredientList.push(currentIngredient);
+        } else {
+          console.log(currentIngredientList);
+          break;
+        }
+      };
+      let ingredientDisplay = currentIngredientList.map(makePara);
 
 			//Check for matching ingredients
 			let matching = [];
@@ -174,7 +177,7 @@ $(document).ready(function() {
 			$('#recipe-tron').html(`
           <div id="recipe-tron-inner" class="jumbotron mx-auto">
             <div class="text-right">
-              <p id="calories">Calories will go here!</p>
+              <p id="calories">Loading...</p>
             </div>
             <div id="title-section">
               <p id="recipe-title" class="text-left">${toTitleCase(meal)}</p>
@@ -198,7 +201,10 @@ $(document).ready(function() {
               </div>
             </div>
           </div>
-        `);
+      `);
+      //$(document).on("click", "#calories", function(){
+        calTotal(currentIngredientList);
+      //})
 		});
 	};
 	//Test
@@ -232,4 +238,25 @@ $(document).ready(function() {
       1000
     );
   }
+
+  function calTotal(array) {
+    //URL to pull from //example: https://api.edamam.com/api/nutrition-data?app_id=0d8a9a85&app_key=a32fd165fbb5bc39af8e2d82099ea9e9&ingr=1%20large%20apple
+    let totalCalories = 0;
+    let localCalories = [];
+    for (let i = 0; i < array.length; i++) {
+      let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=d4fa434c&app_key=f81ff4dab99fcb211f2e761d6dc73511&ingr=" + array[i];
+      $.ajax({
+        url: queryURL,
+        method: "GET",
+        dataType: 'jsonp',
+      }).then(function(response) {
+        localCalories.push(response.calories);
+        totalCalories += response.calories;
+        if (localCalories.length === array.length) {
+          $("#calories").empty().text(`${totalCalories} Calories`);
+         }
+      });
+    }
+  };
+
 });
