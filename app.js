@@ -204,7 +204,7 @@ $(document).ready(function() {
 	//displayRecipe("Creamy Tomato Soup");
 
 	//This will be the event listener for the food item
-	$(document).on('click', '#recipe-card', function(e) {
+	$(document).on('click', '.card-link', function(e) {
 		//Each button could have either an id, or a value with the meal name in it
 		e.preventDefault();
 		let mealName = $(this).attr('value');
