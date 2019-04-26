@@ -260,16 +260,18 @@ function initMap() {
 
       getUser(currentLocation);
 
+    }, function(error) {
+      if (error.code == error.PERMISSION_DENIED) {
+        getUser(currentLocation);
+      }
     })
-  } else {
-    //console.log("Geolocation not working");
   }
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: currentLocation,
     zoom: 13
   });
-  getUser(currentLocation);
+  
 
   //Event Listener for Grocery Store
   $(document).on("click", "#gsButton", function(event){
