@@ -401,7 +401,7 @@ function getSupplies (location) {
     let totalCalories = 0;
     let localCalories = [];
     for (let i = 0; i < array.length; i++) {
-      let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=d4fa434c&app_key=f81ff4dab99fcb211f2e761d6dc73511&ingr=" + array[i];
+      let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=646b6002&app_key=d0824b11e35d87bee3dfdd19927c7271&ingr=" + array[i];
       $.ajax({
         url: queryURL,
         method: "GET",
