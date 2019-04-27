@@ -132,7 +132,21 @@ $(document).ready(function() {
 			let foodObj = response.meals[0];
 
 			let recipeArray = foodObj.strInstructions.split('. ');
-			let listElements = recipeArray.map(makePara);
+      let listElements = recipeArray.map(makePara);
+      
+      
+      let currentIngredientMatchingList = []; 
+      for (let i = 1; i < 20; i++) {
+        let currentIngredient = response.meals[0]["strIngredient" + i];
+        if (currentIngredient !== "") {
+          currentIngredientMatchingList.push(currentIngredient);
+        } else {
+          break;
+        }
+      }
+      console.log("Matching List.i: " + currentIngredientMatchingList);
+      console.log("Cabinet: " + cabinet);
+      
 
 			let currentIngredientList = [];
 			for (let i = 1; i < 20; i++) {
@@ -151,15 +165,16 @@ $(document).ready(function() {
 
 			//Check for matching ingredients
 			let matching = [];
-			let needed = [];
+			let needed = currentIngredientMatchingList;
 			for (let i = 0; i < currentIngredientList.length; i++) {
-				if (cabinet.includes(currentIngredientList[i]) == true) {
-					matching.push(currentIngredientList[i]);
+				if (cabinet.includes(currentIngredientMatchingList[i]) == true) {
+          let index = needed.indexOf(i);
+          matching.push(currentIngredientMatchingList[i]);
+          needed.splice(index, i)
 				}
-				if (cabinet.includes(currentIngredientList[i]) !== true) {
-					needed.push(currentIngredientList[i]);
-				}
-			}
+      }
+      console.log("Matching.f: " + matching);
+      console.log("Needed: " + needed);
 			var toTitleCase = function(str) {
 				str = str.toLowerCase().split(' ');
 				for (var i = 0; i < str.length; i++) {
@@ -195,8 +210,8 @@ $(document).ready(function() {
               <div class="col-md-12">
                 <p>
                   <ul class="unstyled">${listElements.join(' ')}</ul>
-                  <ul class="unstyled"><span id="val">Available:</span> ${toTitleCase(matching.join(', '))}</ul>
-                  <ul class="unstyled"><span id="val">Needed:</span> ${toTitleCase(needed.join(', '))}</ul>
+                  <ul class="unstyled"><span id="val">Available:</span> ${matching.join(', ')}</ul>
+                  <ul class="unstyled"><span id="val">Needed:</span> ${needed.join(', ')}</ul>
                 </p>
               </div>
             </div>
