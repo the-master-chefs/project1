@@ -12,7 +12,7 @@ $(document).ready(function() {
 		}).then((response) => {
 			//console.log(response);
 			//Build an array of the required ingredients
-
+      $('#recipes').empty();
 			for (let i = 1; i < 20; i++) {
 				$('#recipes').append(`       
         
