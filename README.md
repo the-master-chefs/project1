@@ -1,5 +1,5 @@
 # Tasty Delicious
-Description will go here
+*Get hungry twice*
 ## Authors
 - Anthony Duncan
 - Justin Mozley
