@@ -202,9 +202,9 @@ $(document).ready(function() {
             </div>
           </div>
       `);
-      //$(document).on("click", "#calories", function(){
-        calTotal(currentIngredientList);
-      //})
+      
+      calTotal(currentIngredientList);
+
 		});
 	};
 	//Test
@@ -260,16 +260,18 @@ function initMap() {
 
       getUser(currentLocation);
 
+    }, function(error) {
+      if (error.code == error.PERMISSION_DENIED) {
+        getUser(currentLocation);
+      }
     })
-  } else {
-    //console.log("Geolocation not working");
   }
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: currentLocation,
     zoom: 13
   });
-  getUser(currentLocation);
+  
 
   //Event Listener for Grocery Store
   $(document).on("click", "#gsButton", function(event){
@@ -381,7 +383,7 @@ function getSupplies (location) {
   service.nearbySearch({
     location: location,
     rankBy: google.maps.places.RankBy.DISTANCE,
-    keyword: ['big-box store']
+    keyword: ['target walmart']
   }, callback);
 }
   //scrolls page from recipe search click to recipe cards div
@@ -399,7 +401,7 @@ function getSupplies (location) {
     let totalCalories = 0;
     let localCalories = [];
     for (let i = 0; i < array.length; i++) {
-      let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=d4fa434c&app_key=f81ff4dab99fcb211f2e761d6dc73511&ingr=" + array[i];
+      let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=646b6002&app_key=d0824b11e35d87bee3dfdd19927c7271&ingr=" + array[i];
       $.ajax({
         url: queryURL,
         method: "GET",
