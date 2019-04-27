@@ -144,8 +144,6 @@ $(document).ready(function() {
           break;
         }
       }
-      console.log("Matching List.i: " + currentIngredientMatchingList);
-      console.log("Cabinet: " + cabinet);
       
 
 			let currentIngredientList = [];
@@ -173,8 +171,7 @@ $(document).ready(function() {
           needed.splice(index, i)
 				}
       }
-      console.log("Matching.f: " + matching);
-      console.log("Needed: " + needed);
+
 			var toTitleCase = function(str) {
 				str = str.toLowerCase().split(' ');
 				for (var i = 0; i < str.length; i++) {
