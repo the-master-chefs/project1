@@ -165,13 +165,12 @@ $(document).ready(function() {
 
 			//Check for matching ingredients
 			let matching = [];
-			let needed = [];
+			let needed = currentIngredientMatchingList;
 			for (let i = 0; i < currentIngredientList.length; i++) {
 				if (cabinet.includes(currentIngredientMatchingList[i]) == true) {
+          let index = needed.indexOf(i);
           matching.push(currentIngredientMatchingList[i]);
-				}
-				if (cabinet.includes(currentIngredientMatchingList[i]) !== true) {
-					needed.push(currentIngredientMatchingList[i]);
+          needed.splice(index, i)
 				}
       }
       console.log("Matching.f: " + matching);
@@ -211,8 +210,8 @@ $(document).ready(function() {
               <div class="col-md-12">
                 <p>
                   <ul class="unstyled">${listElements.join(' ')}</ul>
-                  <ul class="unstyled"><span id="val">Available:</span> ${toTitleCase(matching.join(', '))}</ul>
-                  <ul class="unstyled"><span id="val">Needed:</span> ${toTitleCase(needed.join(', '))}</ul>
+                  <ul class="unstyled"><span id="val">Available:</span> ${matching.join(', ')}</ul>
+                  <ul class="unstyled"><span id="val">Needed:</span> ${needed.join(', ')}</ul>
                 </p>
               </div>
             </div>
