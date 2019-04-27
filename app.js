@@ -132,7 +132,21 @@ $(document).ready(function() {
 			let foodObj = response.meals[0];
 
 			let recipeArray = foodObj.strInstructions.split('. ');
-			let listElements = recipeArray.map(makePara);
+      let listElements = recipeArray.map(makePara);
+      
+      
+      let currentIngredientMatchingList = []; 
+      for (let i = 1; i < 20; i++) {
+        let currentIngredient = response.meals[0]["strIngredient" + i];
+        if (currentIngredient !== "") {
+          currentIngredientMatchingList.push(currentIngredient);
+        } else {
+          break;
+        }
+      }
+      console.log("Matching List.i: " + currentIngredientMatchingList);
+      console.log("Cabinet: " + cabinet);
+      
 
 			let currentIngredientList = [];
 			for (let i = 1; i < 20; i++) {
@@ -153,13 +167,15 @@ $(document).ready(function() {
 			let matching = [];
 			let needed = [];
 			for (let i = 0; i < currentIngredientList.length; i++) {
-				if (cabinet.includes(currentIngredientList[i]) == true) {
-					matching.push(currentIngredientList[i]);
+				if (cabinet.includes(currentIngredientMatchingList[i]) == true) {
+          matching.push(currentIngredientMatchingList[i]);
 				}
-				if (cabinet.includes(currentIngredientList[i]) !== true) {
-					needed.push(currentIngredientList[i]);
+				if (cabinet.includes(currentIngredientMatchingList[i]) !== true) {
+					needed.push(currentIngredientMatchingList[i]);
 				}
-			}
+      }
+      console.log("Matching.f: " + matching);
+      console.log("Needed: " + needed);
 			var toTitleCase = function(str) {
 				str = str.toLowerCase().split(' ');
 				for (var i = 0; i < str.length; i++) {
